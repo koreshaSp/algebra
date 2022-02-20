@@ -14,6 +14,9 @@
 \usepackage{amsmath,amssymb}
 \usepackage{parskip}
 \usepackage{graphicx}
+\usepackage{ tipa }
+ \usepackage{enumitem}
+ \usepackage{forloop}
 \usepackage{mathtools}
 \usepackage[usestackEOL]{stackengine} 
 \usepackage{tocloft}
@@ -143,6 +146,24 @@
 {\end{mdframed}}
 
 
+\newenvironment{motivation}{
+\quad
+\begin{mdframed}[linewidth=0.6pt]
+    
+        \textbf{Мотивация:}
+}
+{\end{mdframed}}
+
+\newenvironment{properties}[1][,]
+{
+  \quad
+  \textbf{Свойства:}
+  \begin{enumerate}[#1]\raggedright
+}
+{
+  \end{enumerate}
+}
+
 \newenvironment{namedlemma}[1]
 {
 \quad    
@@ -164,8 +185,12 @@
     \textit{\underline{Пример:}}
 }
 
-\newtheorem*{remark}{Замечание}
+\newenvironment{examples}{
+    \textit{\underline{Примеры:}}
+}
 
+
+\newtheorem*{remark}{Замечание}
 
 \newenvironment{definition}{
     \quad
@@ -331,12 +356,12 @@
 
 \nbvspace[2]
 
-\includegraphics[width=6.0in]{./images/logo.jpeg}
+\includegraphics[width=4.0in]{./images/logo.jpeg}
 \nbvspace[3]
 \normalsize
 
 \large
-2021-2023
+2021-2022
 \nbvspace[1]
 \end{center}
 \newpage
