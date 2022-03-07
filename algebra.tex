@@ -8,6 +8,7 @@
 \usepackage[russian]{babel}
 \usepackage[mathscr]{euscript}
 \usepackage{amsmath,amsthm,amssymb,latexsym,amsfonts}
+\usepackage{faktor}
 \usepackage{pythonhighlight}
 \usepackage{lipsum}
 \usepackage{soul}
@@ -134,9 +135,23 @@
 \quad    
 \begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
     \begin{internal_theorem}[#1]
-        \label{#1}
+        \label{thm:#1}
     }
 {\end{internal_theorem}\end{mdframed}}
+
+\newtheorem*{internal_statement}{Утверждение}
+\newenvironment{statement}[1][]{
+\quad    
+\begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
+    \def\temp{#1}
+    \ifx\temp\empty
+        \begin{internal_statement}
+    \else
+        \begin{internal_statement}[#1]
+    \fi
+        \label{stm:#1}
+    }
+{\end{internal_statement}\end{mdframed}}
 
 
 \newenvironment{motivation}{
