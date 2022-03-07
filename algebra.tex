@@ -129,20 +129,14 @@
            }%
 }
 
-\newenvironment{namedtheorem}[1]
-{
+\newtheorem{internal_theorem}{Теорема}[section]
+\newenvironment{theorem}[1]{
 \quad    
-\begin{mdframed}[linewidth=0.6pt]
-    \textbf{Теорема \textnormal{(#1)}:}
-}
-{\end{mdframed}}
-
-\newenvironment{theorem}{
-\quad
-\begin{mdframed}[linewidth=0.6pt]
-    \textbf{Теорема:}
-}
-{\end{mdframed}}
+\begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
+    \begin{internal_theorem}[#1]
+        \label{#1}
+    }
+{\end{internal_theorem}\end{mdframed}}
 
 
 \newenvironment{motivation}{
@@ -388,6 +382,8 @@
 \import{sections/}{1.tex}
 \pagebreak
 \import{sections/}{2.tex}
+\pagebreak
+\import{sections/}{3.tex}
 $ $
 
 \end{normalsize}
