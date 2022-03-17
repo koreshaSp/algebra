@@ -131,27 +131,36 @@
 }
 
 \newtheorem{internal_theorem}{Теорема}[section]
-\newenvironment{theorem}[1]{
-\quad    
-\begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
-    \begin{internal_theorem}[#1]
-        \label{thm:#1}
-    }
-{\end{internal_theorem}\end{mdframed}}
+\newenvironment{theorem}[1][]{
+    \quad    
+    \begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
+        \def\temp{#1}
+        \ifx\temp\empty
+            \begin{internal_theorem}
+        \else
+            \begin{internal_theorem}[#1]
+            \label{thm:#1}
+        \fi
+}           % theorem here ----
+{       \end{internal_theorem}
+    \end{mdframed}
+}
 
 \newtheorem*{internal_statement}{Утверждение}
 \newenvironment{statement}[1][]{
-\quad    
-\begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
-    \def\temp{#1}
-    \ifx\temp\empty
-        \begin{internal_statement}
-    \else
-        \begin{internal_statement}[#1]
-    \fi
-        \label{stm:#1}
-    }
-{\end{internal_statement}\end{mdframed}}
+    \quad    
+    \begin{mdframed}[linewidth=0.6pt, innerrightmargin=1pc]
+        \def\temp{#1}
+        \ifx\temp\empty
+            \begin{internal_statement}
+        \else
+            \begin{internal_statement}[#1]
+            \label{stm:#1}
+        \fi
+}           % statement here ------
+{           \end{internal_statement}
+    \end{mdframed}
+}
 
 
 \newenvironment{motivation}{
