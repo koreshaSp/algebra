@@ -34,7 +34,7 @@
     Рассмотрим $\sum_{k = 1}^{n}\mu_k v'_k = 0$, надо понять существуют ли такие нетривиальные $\mu_k$.
 
     Раскрыв скобки, получим:
-    $(\sum_{k=1}^{n}\mu_kv_k) + \mu_j\lambda v_i = 0 \Rightarrow \mu_k=0\quad\forall k\not=i$ и $\mu_i + \mu_j \lambda = 0$
+    $(\sum\limits_{k=1}^{n}\mu_kv_k) + \mu_j\lambda v_i = 0 \Rightarrow \mu_k=0\quad\forall k\not=i$ и $\mu_i + \mu_j \lambda = 0$
     по линейной независимости векторов(а значит коэффициенты при всех векторах точно 0).
     Значит $\mu_i=0$, так как $\mu_j\lambda= 0$.
 \end{proof}
@@ -53,7 +53,7 @@
     База индукции:\\$n = 1, m > 2$, все $u_i = \lambda_i\cdot v_1$, тогда по факту выше $u$ линейно зависимы.
 
     Индукционный переход: $(n-1,m-1)\rightarrow (n,m)$:\\
-    Определим $\lambda_{i,j}$ следующим образом: $u_i = \sum_{j=0}^{n} \lambda_{i,j} v_j$.
+    Определим $\lambda_{i,j}$ следующим образом: $u_i = \sum\limits_{j=0}^{n} \lambda_{i,j} v_j$.
     Найдём вектор $u_k\colon \lambda_{k,n}\not=0$, если такого нет, тогда оказывается, что $v_n$ не
     участвует в разложении ни одного $u_i$, а значит можем воспользоваться предположением индукции.
 
@@ -63,8 +63,8 @@
     То есть у нас есть $m-1$ вектор, каждый из которых выражается
     через $n-1$ вектор. А это значит, что данный набор $v'_1,\dots, v'_{m-1}$ линейно зависим по предположению индукции.
 
-    Расписав по определению, получим $\sum_{i=0}^{m-1}\mu_i u'_i = 0$, где не все $\mu_i=0$.
-    Распишем то же самое, но через $u_i$: $\sum_{i=0}^{m-1}\mu_iu_i + (\sum\dots)u_m=0$. Получается, что в этой
+    Расписав по определению, получим $\sum\limits_{i=0}^{m-1}\mu_i u'_i = 0$, где не все $\mu_i=0$.
+    Распишем то же самое, но через $u_i$: $\sum\limits_{i=0}^{m-1}\mu_iu_i + (\sum\limits\dots)u_m=0$. Получается, что в этой
     линейной комбинации тоже не все коэффициенты равны нулю, а значит мы доказали линейную зависимость $u_1\dots u_m$. 
 \end{proof}
 
@@ -88,14 +88,14 @@
 \end{definition}
 \begin{lemma}
     $v_1,\dots v_n \in V$ является базисом $\Leftrightarrow \forall v\in V \; \exists !\;
-    \lambda_1,\dots,\lambda_n\colon\; v = \sum_{i=1}^{n}\lambda_iv_i$.
+    \lambda_1,\dots,\lambda_n\colon\; v = \sum\limits_{i=1}^{n}\lambda_iv_i$.
 \end{lemma}
 \begin{proof} \leavevmode\\
     $\ola$
     \begin{enumerate}
-        \item Пусть набор $v$ линейно зависим, тогда: $\exists \mu \colon \sum_{i=1}^{n}\mu_iv_i=0, \exists \mu_j\not=0$.
+        \item Пусть набор $v$ линейно зависим, тогда: $\exists \mu \colon \sum\limits_{i=1}^{n}\mu_iv_i=0, \exists \mu_j\not=0$.
             Тогда расписав любой вектор, воспользовавшись условием, получим 
-            $v = \sum_{i=1}^{n}\lambda_iv_i = \sum_{i=1}^{n}(\lambda_i+\mu_i)v_i$. То есть мы нашли
+            $v = \sum\limits_{i=1}^{n}\lambda_iv_i = \sum\limits_{i=1}^{n}(\lambda_i+\mu_i)v_i$. То есть мы нашли
             второе разложение $v$ как линейную комбинацию $v_i$, что противоречит с единственностью $\lambda$.
             Значит $v$ линейно независим.
         \item $v_1,\dots, v_n$~--- порождающая $V$ просто так как любой вектор из $V$ выражается
@@ -103,10 +103,10 @@
     \end{enumerate}
     $\ora$
 
-    $\exists \lambda_i \sum_{i=1}^{n} \lambda_iv_i = V$
+    $\exists \lambda_i \sum\limits_{i=1}^{n} \lambda_iv_i = V$
     Пусть есть две линейные комбинации, дающие $v$.
-    $\sum_{i=1}^{n} \lambda_iv_i = \sum_{i=1}^{n} \mu_iv_i = v$. Можем вычесть одну из другой, тогда
-    $\sum_{i=1}^{n}(\lambda_i - \mu_i)v_i = 0\Rightarrow \lambda_i-\mu_i=0\;\forall i
+    $\sum\limits_{i=1}^{n} \lambda_iv_i = \sum\limits_{i=1}^{n} \mu_iv_i = v$. Можем вычесть одну из другой, тогда
+    $\sum\limits_{i=1}^{n}(\lambda_i - \mu_i)v_i = 0\Rightarrow \lambda_i-\mu_i=0\;\forall i
     \Rightarrow \lambda_i = \mu_i\;\forall i$.
 \end{proof}
 
@@ -143,7 +143,8 @@ $$V\supseteq \langle v_1,\dots,v_n, u_1,\dots,u_k\rangle \supseteq \langle u_1,\
 \begin{proof}
     $e_1,\dots,e_n$, $f_1,\dots,f_\alpha$~--- базисы. Знаем, что все $f_j$
     выражаются через $e_i$ и все $e_i$ выражаются через $f_j$.
-    Допустим $\alpha > n$, тогда $f_1,\dots,f_\alpha$ линейно зависимы(по \ref{thm:О линейной независимости линейной комбинации}), а значит $f$ не базис.
+    Допустим $\alpha > n$, тогда $f_1,\dots,f_\alpha$ линейно зависимы(по \hyperref[thm:О линейной независимости линейной комбинации]
+    {теореме о линейной независимости линейной комбинации}), а значит $f$ не базис.
     Для случая $\alpha < n$ всё аналогично.
 \end{proof}
 \begin{definition}
