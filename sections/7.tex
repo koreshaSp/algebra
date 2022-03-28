@@ -1,0 +1,226 @@
+\section{Лекция 28.03}
+\subsection{Определитель}
+\begin{motivation}
+    Хотим понять что мы хотим от объёма в общем случае и понять каким наборам
+    аксиом он должен удовлетворять.
+\end{motivation}
+\begin{motivation}
+    Давайте пока думать о частном случае, а именно: $\R^n$.
+     $Vol(E_n)$~--- объём единичного куба. Давайте выпишем свойства которые мы в итоге хотим видеть.
+     \begin{enumerate}
+         \item $Vol(E_n) = 1$
+         \item $Vol(v_1,\dots, \lambda v_i, \dots, v_n) = \abs{\lambda} Vol(v_1,\dots, v_i,\dots, v_n)$ 
+         \item \lab{картинка 1} Давайте подумаем о случае $\R^3$ ищем площадь основания и 
+             умножаем на высоту.  Давайте думать об одном векторе, как о сумме двух,
+             параллельных плоскости, а оставшиеся два будут образовывать плоскость.(todo).\\
+             $Vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = Vol(\dots, v_i, \dots) + Vol(\dots,\hat{v_i},\dots)$.
+             Более того, мы хотим, чтобы $v_i, \hat{v_i}$ лежали по одну сторону подпространства 
+             заданного остальными векторами.
+         \item $Vol(v_1,\dots, v_i + \lambda v_j, \dots, v_j, \dots, v_n) 
+             = Vol(v_1,\dots, v_i,\dots, v_j, \dots, v_n)$ 
+             \lab{рисунок 2}
+             \lab{принцип Кальвае чёто там про интегрирование при помощи прямой}
+             \lab{рисунок 3}
+         \item $Vol(v_1,\dots, v_i, \dots, v_i, \dots, v_n) = 0$ (на самом деле его можно вывести
+             из предыдущих, но всё же это свойство важно).
+     \end{enumerate}
+     Наиболее интересными свойствами являются: 2,3,5.
+\end{motivation}
+Теперь мы готовы задать объём в случае произвольного поля.
+\begin{definition}
+    $Vol: V\times \dots \times V \mapsto K$, где $K$~--- поле, а $\dim V = n$.
+    \begin{enumerate}
+        \item $Vol(v_1,\dots, \lambda v_i, \dots, v_n) = \lambda Vol(v_1,\dots, v_n)$
+        \item Забьём на то, что вектора должны лежать по разные стороны от плоскости
+            и запишем свойство в общем виде: $Vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = 
+            Vol(\dots, v_i, \dots ) + Vol(\dots, \hat{v_i} \dots)$.
+        \item $Vol(\dots, v_i, \dots, v_i, \dots) = 0$
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    Заметим, что в случае $n = 1$ $Vol$ является линейным. Это намекает нам, что необходимо
+    новое определение.
+\end{remark}
+\begin{definition}
+    $V_1,\dots, V_k, U$~--- век про-ва $L: V_1\times\dots\times V_k\mapsto U$.
+    Если $L$ удовлетворяет свойствам 1, 2 прошлого определения, то оно называется полилинейным.
+    В случае $L: V\times\dots\times V\mapsto K$. $K$ называется полилинейной формой на $V$.
+\end{definition}
+\begin{definition}
+    Свойство кососимметричности и симметричности.
+     \begin{enumerate}
+         \item $L$~--- симметричное, если $L(v_1,\dots, v_i, \dots, v_j, \dots v_n) = L(v_1,\dots, v_j,\dots, v_i,\dots, v_n)$.
+         \item $L$~--- кососимметричное, если $L(\dots, v_i, \dots, v_i, \dots) = 0$
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    $n = \dim V$. $L: V\times\dots\times V \mapsto K$ полилинейное и кососимметричное.
+    тогда $L$~--- форма объёма. Такое всегда существует(но вырожденное!), например нулевое
+\end{definition}
+\begin{motivation}
+    Теперь вопрос стоит о классификации и определении свойств.
+\end{motivation}
+Далее для простоты будем говорить о ситуации $L: V\times\dots\times V\mapsto K$, иначе
+пришлось бы выбирать в каждом $V_i$ свой базис. Структурно доказательства бы не изменились.
+\begin{definition}
+    Пусть $K$~--- поле, $V$~--- векторное пространство.\\ 
+    Тогда $Hom_k(V,\dots, V,K)$~--- множество всех полилинейных отображений
+    из $V\times\dots\times V\mapsto K$.
+    Более того, оно является векторным пространством. Так как сумма полилинейных
+    отображений полилинейное.
+\end{definition}
+\begin{remark}
+    $\dim Hom_k(\underbrace{V,\dots, V}_{l}, K) = (\dim V)^l$ 
+\end{remark}
+\begin{proof}
+    $e_1,\dots, e_n$~--- базис $V$.
+    Пусть $L: V^{\times l} \mapsto K$. 
+    Знаем, что$v_i = \sum\limits_{j}^{}{[v_i]_je_j}$, откуда следует равенство.
+    $L(v_1\dots, v_l) = \sum\limits_{1\le j_1,\dots,j_l\le n}{L(e_{j_1}, \dots, e_{j_l})
+    \prod\limits_{s=1}^{l}[v_s]_{j_s}}$.\lab{тут было какое-то произведение в конце формулы}
+    Давайте распишем пример для случая, где у нас два вектора:
+    \[
+        L(v_1, v_2) = \left[v_1 = \sum\limits_{j_1=1}^{n}{[v_1]_{j_1}\cdot e_{j_1}};
+        v_2 = \sum\limits_{j_2=1}^{n}{[v_2]_{j_2}\cdot e_{j_2}}\right]=
+        \sum\limits_{j_1=1}^{n}{[v_1]_{j_1}L(e_{j_1}, v_2)} =
+        \sum\limits_{j_1,j_2=1}^{n}{[v_1]_{j_1}[v_2]_{j_2}L(e_{j_1}e_{j_2})}
+    \]
+    \lab{дослушать, как это доказывается\обобщается}
+\end{proof}
+\begin{statement}\leavevmode
+    \begin{enumerate}
+        \item
+            $L: V^{\times l}\mapsto K$~--- кососимметричное полилинейное отображение, то
+            оно удовлетворяет условию $L(\dots, u,\dots, v,\dots) = -L(\dots,v,\dots,u,\dots)$.
+        \item 
+            $L~$~--- полилинейное, $L(\dots, u,\dots,v,\dots) = -L(\dots, v,\dots, u,\dots)$.
+            $char K \not= 2 \Rightarrow L$~--- кососимметричное.
+    \end{enumerate}
+\end{statement}
+\begin{proof}\leavevmode
+    Докажем $\ola$:\\
+    Посмотрим на ситуацию: $L(\dots, u + v, \dots, u + v,\dots) = 
+    L(\dots, u,\dots, u,\dots) + L(\dots, u, \dots, v,\dots) + 
+    L(\dots, v,\dots,u,\dots)+L(\dots, v,\dots, v) = L(\dots, u,\dots, u,\dots) + 
+    L(\dots, v,\dots, v,\dots)$. В правой
+    части равенства первое сокращается с третьим по свойству\lab{свойство?}
+
+    Докажем $\ora $:\\
+    $L(\dots, v,\dots,v,\dots) = -L(\dots,v,\dots,v) \Rightarrow 
+    2L(\dots,v,\dots,v,\dots) = 0$.
+\end{proof}
+\begin{motivation}
+    \lab{чего хотим?} 
+\end{motivation}
+\begin{statement}
+    $L$~--- кососимметричная полилинейная форма, тогда:
+    \[
+        L(e_1,\dots, e_l) = L(\sigma(i_1),\dots, e_{\sigma(l)})\cdots sgn(\sigma),
+    \]
+    где $sgn(\sigma)$~--- количество транспозиций в перестановке $\sigma$.
+\end{statement}
+\begin{proof}
+    Очевидно по свойству кососимметричности формы $L$, если знать 
+    определения и свойства знака перестановки.
+\end{proof}
+\subsection{Знак перестановки(чётность)}
+\begin{definition}
+    $S_n$~--- множество перестановок на $n$ элементах.
+\end{definition}
+\begin{definition}
+    Пусть $\sigma\in S_n$. Тогда  
+    \[
+        sgn\sigma = \prod\limits_{n\ge i\ge j\ge 1}\frac{\sigma(i) - \sigma(j)}{i - j}=
+        \prod\limits_{i\not=j}\frac{\sigma(i) - \sigma(j)}{i - j}
+    \]
+    .
+\end{definition}
+\begin{definition}
+    Инверсией назовём пару $(i,j): i > j, \sigma(i) < \sigma(j)$.
+\end{definition}
+\begin{remark}
+    $sgn(-1)^{\text{количество инверсий}}$
+\end{remark}
+\begin{theorem}
+    $sgn\sigma \tau = sgn \sigma\cdot sgn\tau$.
+\end{theorem}
+\begin{proof}
+    \[
+        sgn\sigma\tau = \prod\limits_{i > j} \frac{\sigma\tau(i) - \sigma\tau(j)}{i - j}=
+        \prod\limits_{i > j} \frac{\sigma\tau(i) - \sigma\tau(j)}{i - j}\cdot
+        \frac{\tau(i)-\tau(j)}{\tau(i)-\tau(j)}=
+        \left(\prod\limits_{i > j} \frac{\sigma\tau(i)- \sigma\tau(j)}{\tau(i)-\tau(j)}\right)\cdot sgn\tau=
+        sgn\sigma + sgn \tau
+        .
+    \]
+    Первое равенство по определению. Второе очевидно. Третье равенство мы 
+    просто заметили, что $\frac{\tau(i)-\tau(j)}{i-j} = sgn\tau$ по определению.
+\end{proof}
+\begin{statement}\leavevmode
+    \begin{enumerate}
+        \item $sgn\left((12)\right) = -1$
+        \item $sgn\sigma = sgn\sigma^{-1}$    
+        \item $sgn\left((i,j)\right) = sgn\left((12)\right) = -1$
+    \end{enumerate}
+\end{statement}
+\begin{proof}\leavevmode
+    \begin{enumerate}
+        \item Очевидно
+        \item По свойству гомоморфизма групп.
+            $sgn\sigma\cdot sgn\sigma^{-1} = sgn(\sigma\sigma^{-1}) = sgn(id) = 1$.
+        \item
+        $sgn\left((i,j)\right) = sgn\left(g^{-1}(12)g\right) = sgn\left((12)\right)$, где $g\in S_n\colon g(i) = 1, g(j) = 2$. 
+
+    \end{enumerate}
+\end{proof}
+\begin{follow}\leavevmode
+    \begin{enumerate}
+        \item
+            $sgn\sigma = (-1)^{\text{кол-во транспозиций в $\sigma$}}$.
+        \item
+            $sgn\sigma = (-1)^{\text{кол-во циклов чётной длины в каноническом разложении $\sigma$}}$\\
+            Ps. Каноническим разложением назовём разложение $\sigma$ на циклы 
+            $\sigma =(123)(45)(6789)$.
+        \item
+            $(a_1,\dots, a_k) = (a_1,a_2)\dots(a_{k-1},a_k)$\\
+            То есть любой цикл размера $k$ это композиция $k-1$ транспозиций.
+    \end{enumerate}
+\end{follow}
+\begin{statement}
+    $L$~--- кососимметричное полилинейное, $e_1,\dots,e_n$~--- базис $V$. Тогда:
+    \[
+        L(v_1,\dots, v_l) = \sum\limits_{1\le j_1<\dots<j_l\le n}{
+    \left(\sum\limits_{\sigma\in S_l}{sgn\sigma \prod\limits_{s=1}^{l}{[v_s]_{j_\sigma(s)}}}\right)L(e_{j_1},\dots,e_{j_l})
+        }
+    \]
+    \lab{чего}
+\end{statement}
+\begin{remark}
+    \lab{??}
+    В случае $l = n$ формула приобретает вид:
+    \[
+        L(v_1,\dots, v_n) = L(e_1,\dots, e_n)\cdot \sum\limits_{\sigma\in S_n}^{}{
+            sgn\sigma\prod_{S = 1}{X_{S,\sigma(s)}}
+        }
+    \]
+\end{remark}
+\begin{definition}
+    $A\in M_n(K)$, тогда определителем $A$ назовём: $detA = \sum\limits_{\sigma\in S_n}
+    {sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}$
+\end{definition}
+\begin{theorem} \leavevmode
+    \begin{enumerate}
+        \item
+            $det: M_n(K)\mapsto K$~--- невырожденная форма объёма.
+        \item
+            $det(AB) = detA \cdot detB$.
+        \item
+             $det \left(\begin{array}{c|c}
+                     A & B\\
+                     \hline
+                     0 & D
+             \end{array}\right) = det A \cdot det C$ 
+         \item
+             $\abs{det} = Vol$, при  $K = \R$
+    \end{enumerate}
+\end{theorem}
