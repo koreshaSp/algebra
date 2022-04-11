@@ -204,10 +204,20 @@
     todo()
 \end{proof}
 \begin{definition}
-    $det A_{\overline{i},\overline{j}} = M_{i,j}$~--- минор размера $n - 1$. $Ax = e_i$. 
-    $(-1)^{i + j} M_{i, j} = A^{i,j}$~--- алгебраическое дополнение.
-    Определим присоединённую матрицу как: $A^{j,i} = (Adj A)_{(i)}$
-    Тогда:
-    $A^{-1} d= \frac{AdjA}{det A}$ доказать самим.
+    Давайте определим $M_{i,j}$(минор матрицы $A$), следующим образом:
+    $M_{i,j} = detA_{\overline{i}, \overline{j}}$, где $A_{\overline{i}, \overline{j}}$~--- матрица $A$, в которой 
+    отсутствует $i$ строка и $j$ столбец.
 \end{definition}
-TODO(макрос на array и на prod)
+\begin{definition}
+    Пусть $A$~--- матрица. Тогда её алгебраическое дополнение(обозначается $A^{i,j}$) в точке $i, j$ определим следующим
+    образом $A^{i,j} = (-1)^{i + j}M_{i,j}$. 
+\end{definition}
+\begin{definition}
+    Присоединённой матрицей(обозн. $Adj A$) назовём следующую матрицу:\\ $(Adj A)_{i,j} = A^{j,i}$.
+\end{definition}
+\begin{statement}
+    $A^{-1} = \frac{AdjA}{det A}$
+\end{statement}
+\begin{proof}
+    Упражнение.
+\end{proof}
