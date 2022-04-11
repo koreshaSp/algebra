@@ -3,13 +3,13 @@
 \subsection{Умножение матриц}
 \quad
 \begin{remark}
-    Пусть есть $a_1 \cdot x_1 + a_2 \cdot x_2 + ... + a_n \cdot x_n = b$ и мы хотим записать это выражение \\ \\ компактно.
-    Тогда удобно было бы, чтобы $(a_1, ..., a_n) \cdot 
+    Пусть есть $a_1 \cdot x_1 + a_2 \cdot x_2 + \dots + a_n \cdot x_n = b$ и мы хотим записать это выражение \\ \\ компактно.
+    Тогда удобно было бы, чтобы $(a_1, \dots, a_n) \cdot 
     \begin{pmatrix}
         x_1\\
         \dots\\
         x_n\\
-    \end{pmatrix} = a_1 \cdot x_1 + a_2 \cdot x_2 + ... + a_n \cdot x_n = b$.\\
+    \end{pmatrix} = a_1 \cdot x_1 + a_2 \cdot x_2 + \dots + a_n \cdot x_n = b$.\\
 \end{remark}
 
 \begin{definition}
@@ -45,9 +45,9 @@
     \end{pmatrix} = \\\\
     \normalsize = 
     \begin{pmatrix}
-        A \cdot x_1 \,\, \vrule \,\, ... \,\, \vrule \,\, A \cdot x_n 
+        A \cdot x_1 \,\, \vrule \,\, \dots \,\, \vrule \,\, A \cdot x_n 
     \end{pmatrix} = C \in M_{m \times k}(R)
-    $ или более явно $C_{i, j} = \sum_{k = 1}^n A_{i,k} \cdot B_{k,j}$
+    $ или более явно $C_{i, j} = \sum\limits_{k = 1}^n A_{i,k} \cdot B_{k,j}$
 \end{definition}
 
 \quad
@@ -90,9 +90,9 @@
           \end{cases}$\\\\\\
           \textbf{Задача}: посчитать число путей из вершины $i$ в вершину $j$ длины $k$ -- $a_{i,j}^k$ \\\\
           \textbf{Решение}: 
-              $k = 1 : a_{i,j}^1 = A(G)_{i,j};\,\, a_{i, j}^k = (A(G)) ^ k_{i, j}$, т.к $a_{i,j}^k = \sum_{l = 1}^n a_{i, l}^{(k-1)} \cdot a_{l, j}$ \\
+              $k = 1 : a_{i,j}^1 = A(G)_{i,j};\,\, a_{i, j}^k = (A(G)) ^ k_{i, j}$, т.к $a_{i,j}^k = \sum\limits_{l = 1}^n a_{i, l}^{(k-1)} \cdot a_{l, j}$ \\
         \item  $G$ - ориентированный граф, $W(e) $ -- вероятность переезда человека по ребру $e$, \\
-        $W(L) = \prod_{e\in L}W(e)$ -- вероятность проехать по такому пути.
+        $W(L) = \prod\limits_{e\in L}W(e)$ -- вероятность проехать по такому пути.
 
         $A(G)_{i, j} = W_{i, j}$ (вес ребра из $i$ в $j$) $\Longrightarrow$ по аналогии $A(G)^k$ - матрица вероятностей после $k$ переездов. 
           
@@ -102,17 +102,16 @@
     \end{enumerate}
 \end{examples}
 
-\newpage
 \subsection{Свойства произведения}
 
 \begin{enumerate}
     \item Ассоциативность: $(AB)C = A(BC)$, где $A \in M_{m \times n}, B \in M_{n \times l}, C \in M_{l \times k} $\\
     \item $E_n = \begin{pmatrix}
-        1 & ... &0\\
+        1 & \dots &0\\
         &\rotatebox{135}{$\cdots$}&\\
-        0&...&1 
+        0&\dots&1 
     \end{pmatrix}$ --- единичная матрица \\\\\\
-    $A \in M_{m\times n}, E_m \cdot A = A = A * E_n$
+    $A \in M_{m\times n}, E_m \cdot A = A = A \cdot E_n$
     \item Обратный элемент есть не всегда!\\\\
     \begin{example}
         $\begin{pmatrix}
@@ -129,7 +128,6 @@
     \end{example}
 \end{enumerate}
 
-\newpage
 \subsection{Линейность}
 
 \begin{remark}
@@ -185,7 +183,6 @@
 $
 \end{remark}
 
-\newpage 
 \begin{remark} Решения систем уравнений похожи на диофантовые уравнения:\\
 
 \quad\quad\quad\quad\quad\,\,\,\,\,    $
@@ -212,7 +209,6 @@ $
     Рассмотрим $X = \{ x \, | \, A \cdot x = 0 \}$ и $x_1, x_2 \in X \Longrightarrow x_1 + x_2 \in X, -x_1 \in X $ и $\lambda \cdot x_1 \in X$. Это похоже на определение подгруппы или идела в $R^n$.
 \end{remark}
 
-\newpage
 \subsection{Векторные пространства}
 
 \begin{definition}
@@ -241,18 +237,17 @@ $
         \item $M_{m \times n}(K)$ --- векторное над K
         \item $\mathbb{C}$ над $\mathbb{R}$ или более общая ситуация $K \subseteq L$ (подполе), тогда  $L$ --- векторное над $K$
         \item $c([a,b]) / \mathbb{R}$
-        \item $c'([a,b]) \subseteq c([a,b]) / \mathbb{R}$
+        \item $c'\left([a,b]\right) \subseteq c\left([a,b]\right) / \R$
     \end{enumerate}
     
 \end{examples}
 
-\newpage
 \begin{definition}
     Подпространство $W \subseteq V$ --- в.п. над $K$, если
     \begin{enumerate}
         \item $v, u \in W \Longrightarrow (u + v) \in W$
         \item $\lambda \in K, v \in W \Longrightarrow \lambda v \in W$
-        \item $0 \in W$ (т.к. иначе $W = \emptyset$ подходит)
+        \item $0 \in W$ (т.к. иначе $W = \varnothing$ подходит)
     \end{enumerate}
 \end{definition}
 
@@ -265,7 +260,7 @@ $
 
 
 \begin{definition}
-    $\lambda_1, ..., \lambda_n \in K; v_1, v_2, ..., v_n \in V $ -- в.п. $\Longrightarrow \lambda_1 v_1 + ... + \lambda_n v_n$ -- линейная комбинация $v_1, v_2, ..., v_n$ с коэффициентами $\lambda_1, ..., \lambda_n$ 
+    $\lambda_1, \dots, \lambda_n \in K; v_1, \dots, v_n \in V $ -- в.п. $\Longrightarrow \lambda_1 v_1 + \dots + \lambda_n v_n$ -- линейная комбинация $v_1, v_2, \dots, v_n$ с коэффициентами $\lambda_1, \dots, \lambda_n$ 
 \end{definition}
 
 \begin{motivation} 
@@ -280,9 +275,9 @@ $
 
 
 \begin{definition}
-    $v_1, v_2, ..., v_n \in V$, тогда $v_1, v_2, ..., v_n$ --- линейно зависимые, если \\ $\exists \lambda_1, \lambda_2, ..., \lambda_n \in K : \lambda_1 v_1 + ... + \lambda_n v_n = 0$ и не все $\lambda_i = 0$
+    $v_1, v_2, \dots, v_n \in V$, тогда $v_1, v_2, \dots, v_n$ --- линейно зависимые, если \\ $\exists \lambda_1, \lambda_2, \dots, \lambda_n \in K : \lambda_1 v_1 + \dots + \lambda_n v_n = 0$ и не все $\lambda_i = 0$
 \end{definition}
 
 \begin{definition}
-    $v_1, v_2, ..., v_n \in V$, тогда $v_1, v_2, ..., v_n$ --- линейно независимые, если \\ $\nexists \lambda_1, \lambda_2, ..., \lambda_n \in K : \lambda_1 v_1 + ... + \lambda_n v_n = 0$ и не все $\lambda_i = 0$
+    $v_1, v_2, \dots, v_n \in V$, тогда $v_1, v_2, \dots, v_n$ --- линейно независимые, если \\ $\nexists \lambda_1, \lambda_2, \dots, \lambda_n \in K : \lambda_1 v_1 + \dots + \lambda_n v_n = 0$ и не все $\lambda_i = 0$
 \end{definition}
