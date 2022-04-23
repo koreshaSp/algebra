@@ -16,7 +16,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: algebra.tex
+          root_file: main.tex
 
       - name: Create Release
         id: create_release
@@ -36,8 +36,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./algebra.pdf
-          asset_name: algebra.pdf
+          asset_path: ./main.pdf
+          asset_name: main.pdf
           asset_content_type: pdf
 
       - name: Upload to gdrive
