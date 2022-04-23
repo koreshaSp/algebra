@@ -73,8 +73,10 @@
     \textbf{Подпространством, порождённым набором векторов} $v_1, \dots, v_n\in V$, называется
     $$\{\lambda_1v_1 + \dots \lambda_nv_n \mid \lambda_i\in K\}\le V$$
     Далее обозначается как $\langle v_1,\dots, v_n\rangle$.\\
-    \remark Причём это наименьшее подпространство содержащее $v_1,\dots,v_n$.
 \end{definition}
+\begin{remark}
+    Причём это наименьшее подпространство содержащее $v_1,\dots,v_n$.
+\end{remark}
 \begin{definition}
     Если $\langle v_1,\dots v_n\rangle = V$, то набор векторов называется
     порождающей системой.
@@ -137,7 +139,7 @@ $$V\supseteq \langle v_1,\dots,v_n, u_1,\dots,u_k\rangle \supseteq \langle u_1,\
 \end{proof}
 \follow~$v_1,\dots,v_n$~--- пуст $\Rightarrow$ в любом векторном пространстве есть базис.
 \subsection{Размерность}
-\begin{theorem}[О размере базисов]
+\begin{theorem}[О равенстве размеров базисов]
     $V = \langle u_1,\dots,u_m\rangle \Rightarrow$ размер любых двух базисов $V$ одинаков и конечен.
 \end{theorem}
 \begin{proof}
@@ -154,7 +156,7 @@ $$V\supseteq \langle v_1,\dots,v_n, u_1,\dots,u_k\rangle \supseteq \langle u_1,\
     $V$~--- конечномерное, если $V = \langle v_1,\dots, v_m\rangle$.
 \end{definition}
 \begin{lemma}
-    Если $V$~--- конечномерное $U \leq V$, более того $\dim U \leq \dim V$, причём $\dim U = \dim V \Leftrightarrow U=V$.
+    Если $V$~--- конечномерное $U \leq V$, тогда $\dim U \leq \dim V$, причём $\dim U = \dim V \Leftrightarrow U=V$.
 \end{lemma}
 \begin{proof}
     Возьмём $u_1,\dots,u_k$~--- линейно независимый набор из $U$, $k\leq \dim V$ так как этот же набор линейно независим и в $V$. 
@@ -167,6 +169,9 @@ $$V\supseteq \langle v_1,\dots,v_n, u_1,\dots,u_k\rangle \supseteq \langle u_1,\
     Получили противоречие с $\langle u_1, \dots, u_m\rangle \subset U \subset V$.
 \end{proof}
 \subsection{Алгебраические и трансцендентные числа}
+\begin{motivation}
+    Посмотрим на пример, где уже полученные нами знания оказываются весьма полезны.
+\end{motivation} 
 \begin{definition}
 $\alpha\in\C, \alpha$~--- алгебраическое, если $\exists p(x)\not=0\in\Q[x] \colon p(\alpha)=0$.
 Иначе $\alpha$~--- трансцендентное.
@@ -180,16 +185,27 @@ $\alpha$~--- алгебраическое $\Rightarrow f(\alpha)$~--- алгеб
     Почему выполняется второе равенство?
     По алгебрaичности $\alpha$ $\exists p(\alpha) = b_0+b_1\alpha+\dots+b_n\alpha^n = 0, b_n\not=0$, тогда
     $\alpha^n = -\frac{b_0}{b_n} - \frac{b_1\alpha}{b_n} + \dots + \frac{b_{n-1}\alpha^{n-1}}{b_n}$.
+    То есть все $\forall i \ge n, \alpha^i$ выражается через предыдущие, откуда следует, что $\dim V = n$.
+
     Обозначим $\beta = f(\alpha)$ и будем пытаться найти $q(\beta)=0$.
     Заметим, что $\beta\in V, \beta^2\in V,\dots,\beta^n\in V$. 
-    Тогда найдём минимальную $k: \beta,\beta^2,\dots,\beta^k$~--- линейно зависимы, такой $k$ существует, так как $k < n$. Ну а линейная зависимость этого набора означает существование нетривиальных 
-    $c_0,\dots, c_k\colon c_0 + c_1\beta + c_2\beta^2 + \dots + c_n\beta^n=0$.
+    Тогда найдём минимальный $k: \beta,\beta^2,\dots,\beta^k$~--- линейно зависимы, такой $k$ существует,
+    так как $\beta_i \in V$, а $\dim V = n$, то есть конечно.
+    Ну а линейная зависимость этого набора означает существование нетривиальных 
+    $c_0,\dots, c_k\colon c_0 + c_1\beta + c_2\beta^2 + \dots + c_k\beta^k=0$.
 \end{proof}
 \subsection{Связь с теорией множеств}
 \begin{definition}
-    $U_1, U_2\leq V \Rightarrow U_1\cap U_2 \leq V$ и $U_1+U_2 =
-    \{u_1+u_2\mid u_1\in U_1; u_2\in U_2\}\in V$
+    $U_1, U_2\leq V$\\
+    $U_1\cap U_2 = \{u \mid u\in U_1 \land u\in U_2\}$,
+    $U_1+U_2 = \{u_1+u_2\mid u_1\in U_1; u_2\in U_2\}$
 \end{definition}
+\begin{statement}
+    $U_1\cap U_2 \in V, U_1 + U_2 \in V$
+\end{statement}
+\begin{proof}
+    Упражнение.
+\end{proof}
 \begin{theorem}[Формула Грассмана]
 $V$~--- конечномерное. $U_1, U_2\leq V$. 
 $\dim U_1 + \dim U_2 = \dim(U_1+U_2) + \dim(U_1\cap U_2)$
