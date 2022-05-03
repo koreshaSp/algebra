@@ -4,41 +4,50 @@
     Хотим понять что мы хотим от объёма в общем случае и понять каким наборам
     аксиом он должен удовлетворять.
 \end{motivation}
-\begin{motivation}
-    Давайте пока думать о частном случае, а именно: $\R^n$.
-     $Vol(E_n)$~--- объём единичного куба. Давайте выпишем свойства которые мы в итоге хотим видеть.
-     \begin{enumerate}
-         \item $Vol(E_n) = 1$
-         \item $Vol(v_1,\dots, \lambda v_i, \dots, v_n) = \abs{\lambda} Vol(v_1,\dots, v_i,\dots, v_n)$ 
-         \item \lab{картинка 1} Давайте подумаем о случае $\R^3$ ищем площадь основания и 
-             умножаем на высоту.  Давайте думать об одном векторе, как о сумме двух,
-             параллельных плоскости, а оставшиеся два будут образовывать плоскость.(todo).\\
-             $Vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = Vol(\dots, v_i, \dots) + Vol(\dots,\hat{v_i},\dots)$.
-             Более того, мы хотим, чтобы $v_i, \hat{v_i}$ лежали по одну сторону подпространства 
-             заданного остальными векторами.
-         \item $Vol(v_1,\dots, v_i + \lambda v_j, \dots, v_j, \dots, v_n) 
-             = Vol(v_1,\dots, v_i,\dots, v_j, \dots, v_n)$ 
-             \lab{рисунок 2}
-             \lab{принцип Кальвае чёто там про интегрирование при помощи прямой}
-             \lab{рисунок 3}
-         \item $Vol(v_1,\dots, v_i, \dots, v_i, \dots, v_n) = 0$ (на самом деле его можно вывести
-             из предыдущих, но всё же это свойство важно).
-     \end{enumerate}
-     Наиболее интересными свойствами являются: 2,3,5.
-\end{motivation}
-Теперь мы готовы задать объём в случае произвольного поля.
+
+Давайте пока думать о частном случае, а именно: $\R^n$.
+$\vol(E_n)$~--- объём единичного куба. Давайте выпишем свойства которые мы в итоге хотим видеть.
+\begin{enumerate}
+     \item $\vol(E_n) = 1$
+     \item $\vol(v_1,\dots, \lambda v_i, \dots, v_n) = \abs{\lambda} \vol(v_1,\dots, v_i,\dots, v_n)$ 
+        \begin{figure}[h]
+            \centering
+            \incfig[0.5]{1}
+        \end{figure}
+     \item  Давайте подумаем о случае $\R^3$. Естественно думать, что мы ищем площадь основания и 
+         умножаем на высоту.  
+        \begin{figure}[h]
+            \centering
+            \incfig[0.8]{2}
+        \end{figure}
+
+         Давайте думать об одном векторе, как о сумме двух,
+         параллельных плоскости, а оставшиеся два будут образовывать плоскость.(todo).\\
+         $\vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = \vol(\dots, v_i, \dots) + \vol(\dots,\hat{v_i},\dots)$.
+         Более того, мы хотим, чтобы $v_i, \hat{v_i}$ лежали по одну сторону подпространства 
+         заданного остальными векторами.
+     \item $\vol(v_1,\dots, v_i + \lambda v_j, \dots, v_j, \dots, v_n) 
+         = \vol(v_1,\dots, v_i,\dots, v_j, \dots, v_n)$ 
+         \lab{рисунок 2}
+         \lab{принцип Кальвае чёто там про интегрирование при помощи прямой}
+         \lab{рисунок 3}
+     \item $\vol(v_1,\dots, v_i, \dots, v_i, \dots, v_n) = 0$ (на самом деле его можно вывести
+         из предыдущих, но всё же это свойство важно).
+\end{enumerate}
+
+Наиболее интересными свойствами являются: 2,3,5, просто потому что остальные могут быть выведены из этих.
+Теперь дадим уже определение объёма в общем виде.
 \begin{definition}
-    $Vol: V\times \dots \times V \mapsto K$, где $K$~--- поле, а $\dim V = n$.
+    $\vol: V\times \dots \times V \mapsto K$, где $K$~--- поле, а $\dim V = n$.
     \begin{enumerate}
-        \item $Vol(v_1,\dots, \lambda v_i, \dots, v_n) = \lambda Vol(v_1,\dots, v_n)$
-        \item Забьём на то, что вектора должны лежать по разные стороны от плоскости
-            и запишем свойство в общем виде: $Vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = 
-            Vol(\dots, v_i, \dots ) + Vol(\dots, \hat{v_i} \dots)$.
-        \item $Vol(\dots, v_i, \dots, v_i, \dots) = 0$
+        \item $\vol(v_1,\dots, \lambda v_i, \dots, v_n) = \lambda \vol(v_1,\dots, v_n)$
+        \item $\vol(v_1,\dots, v_i + \hat{v_i}, \dots, v_n) = 
+            \vol(\dots, v_i, \dots ) + \vol(\dots, \hat{v_i} \dots)$.
+        \item $\vol(\dots, v_i, \dots, v_i, \dots) = 0$
     \end{enumerate}
 \end{definition}
 \begin{remark}
-    Заметим, что в случае $n = 1$ $Vol$ является линейным. Это намекает нам, что необходимо
+    Заметим, что в случае $n = 1$ $\vol$ является линейным. Это намекает нам, что необходимо
     новое определение.
 \end{remark}
 \begin{definition}
@@ -221,6 +230,6 @@
 %                      0 & D
 %              \end{array}\right) = det A \cdot det C$ 
 %          \item
-%              $\abs{det} = Vol$, при  $K = \R$
+%              $\abs{det} = \vol$, при  $K = \R$
 %     \end{enumerate}
 % \end{theorem}

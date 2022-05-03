@@ -38,9 +38,6 @@
 \linespread{1.5}
 \graphicspath{ {./images/} }
 
-\usepackage{amsmath}
-\usepackage{graphicx}
-
 \makeatletter
 \newcommand{\lab}[1]{}
 \newcommand{\ok}{\mathbin{\mathpalette\make@smallcircled\checkmark}}
@@ -335,9 +332,19 @@
 \addtolength{\oddsidemargin}{-.875in}
 \addtolength{\evensidemargin}{-.875in}
 \addtolength{\textwidth}{1.75in}
-
 \addtolength{\topmargin}{-.875in}
 \addtolength{\textheight}{1.75in}
+%--------------------------------------
+% Inkscape integration
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
 %--------------------------------------
 \def\calloutsym{%
   \ensurestackMath{%
@@ -386,14 +393,6 @@
 ЛЕКТОР: ЧЕПУРКИН КОНСТАНТИН МИХАЙЛОВИЧ
 \nbvspace[1]
 \\
-% \Large СОСТАВИТЕЛИ:\\[0.5em]
-% \footnotesize 
-% Андрей \href{https://github.com/K-dizzled}{K-dizzled} Козырев, 
-% Никита  \href{https://github.com/muldrik}{muldrik} Митцев,
-% Максим \href{https://github.com/maxmartynov08}{maxmartynov08} Мартынов,\\ 
-% Семён \href{https://github.com/SmnTin}{SmnTin} Паненков,
-% Марк \href{https://github.com/markprudnikov}{markprudnikov} Прудников,
-% Мария \href{https://github.com/MashaK5}{MashaK5} Козловцева
 
 \nbvspace[2]
 
