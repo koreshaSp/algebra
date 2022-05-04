@@ -1,108 +1,273 @@
 \section{Лекция 04.04}
-\subsection{Базовые свойства определителя}
+\subsection{Определитель}
 \begin{theorem}[Свойства определителя]\leavevmode
     \begin{enumerate}
-        \item $det A$~--- форма объёма на $K^n$.
-        \item Все остальные формы объёма пропорциональны $det$.
-        \item $det A = det A^T$.
-        \item Элементарные преобразования строк и столбцов.
-        \item  $det(AB) = detAdetB$.
-        \item  \[
-        \left(\begin{array}{c|c}
+        \item $\det A$~--- форма объёма на $K^n$.
+        \item Все формы объёма на $K^n$ пропорциональны $\det$.
+        \item $\det A = \det A^T$.
+        \item Элементарные преобразования строк и столбцов просто меняют определитель:
+            \begin{enumerate}
+                \item Элементарное преобразование первого типа не меняет определитель.
+                \item Элементарное преобразование второго типа меняет знак определителя.
+                \item Элементарное преобразования третьего типа, а именно умножение любой строки на $\lambda$ умножает
+                    определитель на $\lambda$.
+            \end{enumerate}
+        \item  $\det(AB) = \det A\det B$.
+        \item  $\left(\begin{array}{c|c}
                 A & B\\
                 \hline
                 0 & C
-        \end{array}\right) = det A det C
-        .\] 
-    \item $det(A^{-1}) = (det A)^{-1}$
+        \end{array}\right) = \det A \det C
+        .$ 
+    \item $\det(A^{-1}) = (\det A)^{-1}$
     \end{enumerate}
 \end{theorem}
 \begin{proof}\leavevmode
     \begin{enumerate}
         \item 
-            Докажем то, что $det A$~--- форма объёма по определению.
+            Докажем то, что $\det A$~--- форма объёма по определению.
+
             \begin{itemize}
-                \item $det: (K^n)^n\mapsto K$(todo)
-                \item Полилинейнойсть очевидна(todo)
-                \item Кососимметричность проверяется следующим образом:
-                    $det(\dots, v,\dots, v,\dots) = 0$.
-                    Для этого матрицу $\big(\dots, v,\dots, v,\dots\big)$ обозначим за $A$.
+                \item Проверим области определения и значений: $\det\colon M_n(K)\mapsto K \simeq (K^n)^n \mapsto K$.
+                \item Полилинейнойсть:
+                    Вспомним определение: 
+                    $\det A = \sum\limits_{\sigma\in S_n} {sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}$. 
+                    \begin{itemize}
+                        \item 
+                            Легко видеть, что в произведении элемент каждого столбца встречается ровно один раз.
+                            Это значит, что если мы один из столбцов умножили на $\lambda$, то и в каждом слагаемом
+                            произведение умножиться на $\lambda$, а значит и вся сумма умножится на $\lambda$. 
+                            Свойство: $\det (v_1,\dots, v_n) = \lambda \det (v_1, \dots, \lambda v_i, \dots, v_n)$
+                            считаем доказанным.
+                        \item
+                            \[
+                            \begin{gathered}
+                                \det (v_1,\dots, v_k + u, \dots, v_n) = 
+                                \sum\limits_{\sigma\in S_n} {sgn\sigma[v_k + u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
+                                \sum\limits_{\sigma\in S_n} {sgn\sigma[v_k]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}+
+                                \sum\limits_{\sigma\in S_n} {sgn\sigma[u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
+                                \det (v_1,\dots, v_k, \dots, v_n) + 
+                                \det (v_1,\dots, u, \dots, v_n) 
+                            \end{gathered}
+                            \] 
+                    \end{itemize}
+                \item Кососимметричность проверяется по определению:
+                    \[
+                    \det A = \det(v_1,\dots, v_l,\dots, v_k,\dots, v_n) = 0, \text{если } v_l = v_k.
+                    \]
                     Тогда можно расписать по определению:
-                    $det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}$.
-                    Для получения группы всех нечетных перестановок из группы всех 
-                    чётных можно воспользоваться следующим отображением $\tau=(kl)$,
-                    где $k, l$~--- индексы векторов $v$ в матрице $A$. Тогда,
-                    если вернуться к нашей формуле:
-                    $det A = \sum\limits_{\sigma\in S_n}^{}{\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}-
-                    \sum\limits_{\sigma\in S_n}^{}{\prod\limits_{i=1}^{n}a_{i,\tau\sigma(i)}}$.
+                    \[
+                        \det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}}
+                    \]
+                    Заметим, что для получения группы всех нечетных перестановок из группы всех 
+                    чётных можно воспользоваться следующей перестановкой: $\tau=(kl)$(на самом
+                    деле тут могла быть любая перестановка $\gamma\colon sgn(\gamma) = -1$)
+
+                    Тогда, если вернуться к нашей формуле то её можно переписать так:
+                    \[
+                    \begin{gathered}
+                        \det A = 
+                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}\right)
+                            - 
+                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \left(\prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
+                        \\
+                        \det A = 
+                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}- \prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
+                        \\
+                        \det A = 
+                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\sigma(i)}-
+                        [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)} \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\tau\sigma(i)}\right)
+                    \end{gathered}
+                    \]
                     Заметим, что если $\sigma(i)\not= k,l$, тогда $a_{i, \tau\sigma(i)} = a_{i,\sigma(i)}$.
-                    Значит куча слагаемых у нас сокращается и остаётся только 
-                    позиции $l, k$. Но они тоже сократятся(можно проверить это ручками так
-                    как слагаемых всего 2).
+                    Значит можно вынести произведение за скобки:
+                    \[
+                    \begin{gathered}
+                        \det A = 
+                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \left(\underbrace{\left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l -
+                            [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)}\right)}_{=0}
+                        \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\sigma(i)}\right) = 0
+                    \end{gathered}
+                    \] 
+                    Вспомнив, что $\tau(k) = l, \tau(l) = k$ по определению $\tau$, получаем, что каждое 
+                    слагаемое равно нулю, следовательно и вся сумма равна нулю.
             \end{itemize}
+        \item Любая форма объёма отличается от определителя умножением на число.\\
+
+            \hyperref[stm:О пространстве форм объёма]{Доказано} в прошлый раз,
+            так как все формы объёма определяются через определитель, умноженный
+            на некоторую константу.
+        \item $\det A = \det A^{T}$.
+
+            Распишем по определению, после чего воспользуемся тем,
+            что у любой перестановки есть обратная:
+            \[
+            \begin{gathered}
+                \det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}
+                =
+                \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                =\\=
+                [\text{так как \hyperref[stm:Основные свойства перестановки]{знак обратной перестановки равен исходному}}]
+                =\\=
+                \sum\limits_{\sigma\in S_n}^{}{sgn\sigma^{-1}\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                =
+                [\text{замена } \tau = \sigma^{-1}]
+                =
+                \sum\limits_{\tau\in S_n}^{}{sgn\tau \prod\limits_{i=1}^{n}a_{\tau(i), i}}
+                =\\=
+                \sum\limits_{\tau\in S_n}^{}{sgn\tau \prod\limits_{i=1}^{n}a^T_{i,\tau(i)}}
+                =
+                \det A^T
+            \end{gathered}
+            \]
         \item 
-            Доказано в прошлый раз, так как все формы объёма определяются через определитель умноженный
-            не некоторую константу.
-        \item
-            Доказываем $det A = det A^{T}$. Распишем по определению:
-            $det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}$.
-            $det A^T = \sum\limits_{\tau\in S_n}^{}{sgn\tau\prod\limits_{i=1}^{n}a_{i,\tau(i)}}$.
-            Заметим, что $sgnT = sgn T^{-1}$. Кроме этого 
-            $\prod\limits_{i = 1}^{n}a_{\tau(i)i} = \prod\limits_{j=1}^{n}a_{j\tau^{-1}(j)}$.
-        \item $L$~--- кососимметричная и полилинейная. 
-            Тогда $L(\dots, u, \dots, v + \lambda u, \dots) = L(\dots, u, \dots, v,\dots) +
-            \lambda L(\dots, u,\dots, u,\dots)$.
-            Значит можно утверждать, что определитель не меняется при первом элементарном преобразовании
-            строк/столбцов.
-            Неизменность определителя для второго элементарного преобразования следуем из свойств 
-            полилинейности/кососсимметричности.
+            \begin{enumerate}
+                \item $\det A$ не меняется при первом элементарном преобразовании для матрицы $A$.
+
+                    $\det$~--- полилинейное и кососимметричное. Тогда
+                    \[
+                        \det(\dots, u, \dots, v + \lambda u, \dots) = \det(\dots, u, \dots, v,\dots) +
+                        \lambda \underbrace{\det(\dots, u,\dots, u,\dots)}_{=0\text{ по кососимметричности}}
+                    .\]
+                \item $\det A$ меняет знак при втором элементарном преобразовании для матрицы $A$.
+                    
+                    Очевидно по \hyperref[stm:Свойство кососимметричного отображения]{свойству кососимметричности}.
+                \item
+                    $\det A$ умножается на $\lambda$ при третьем элементарном преобразовании.
+                    \[
+                        \det (v_1,\dots, \lambda v_i, \dots, v_n) =[\text{по полилинейности } \det]= \lambda \det (v_1, \dots, v_i, \dots, v_n)
+                    .\]
+            \end{enumerate}
+            Выше приведены доказательства для столбцов, доказательство для строк следует из этого
+            автоматически так как $\det A = \det A^T$ по предыдущему свойству.
             \begin{remark}
                 Таким образом можно считать определитель при помощи метода Гаусса постепенно 
                 упрощая нашу матрицу. 
                 Иногда бывает удобно использовать и преобразования строк и преобразования столбцов.
             \end{remark}
         \item
-            $det(AB) = det A det B$.
-            Для доказательства этого свойства воспользуемся доказанным ранее(todo).
-            Зададим следующую функцию $f(x) = det(AX)$. Хочется показать, что $f$~--- форма объёма
+            $\det(AB) = \det A \det B$.
+
+            Зададим следующую функцию $f(X) = \det(AX), f\colon (K^n)^n \mapsto K$. Утверждается, что $f$~--- форма объёма.
              \begin{itemize}
-                 \item Кососимметричность. (помахали руками todo)
+                 \item Кососимметричность. 
+
+                     Пусть в $X$ есть два одинаковых столбца, тогда очевидно, что в $AX$ тоже есть два
+                     одинаковых столбца. Тогда $f(X) = \det(AX) = 0$, так как $\det$~--- кососимметричное отображение.
                  \item Полилинейность. Следует из полилинейности определителя.
-                     $(AX) = A(u + v) = Au + Av$.
-                     $det A, x = E_n$.
-                     TODO(всё зафейлил)
+                     \[
+                     \begin{gathered}
+                     f\left((\dots, u+v,\dots)\right) =
+                     \det A(\dots, u + v, \dots) =
+                     \det \left(\dots, A(u + v), \dots\right)
+                     =\\=
+                     \det\left(\dots, Au + Av, \dots\right) =
+                     \det\left(\dots, Au, \dots\right) + \det\left(\dots, Av, \dots\right) 
+                     =\\=
+                     \det A(\dots, u, \dots) + A\det(\dots, u, \dots) =
+                     f\left(A(\dots, u,\dots)\right) + f\left(A(\dots, v,\dots)\right)
+                     \end{gathered}
+                     \]
+                     Свойство $f\left((\dots, \lambda v, \dots)\right) = \lambda f\left(\dots, v, \dots\right)$
+                     доказывается аналогичным образом.
              \end{itemize}
+             Итак, $f$~--- форма объёма, значит она должна быть пропорциональна определителю: $f(X) = \lambda \det X$.
+             Давайте найдём коэффициент пропорциональности $\lambda$ подставив $X = E$,
+             тогда $\underbrace{f(E)}_{\det A} = \lambda \underbrace{\det E}_{1}$.
+             Таким образом, получаем, что $\lambda = \det A$. Откуда, получаем:
+             \[
+                 f(X) = \det AX = \det A \det X
+             .\]
+
          \item
-             Зададим форму объёма $f(X) = det \left(\begin{array}{c|c}
+            $\left(\begin{array}{c|c}
+                    A & B\\
+                    \hline
+                    0 & C
+            \end{array}\right) = \det A \det C
+            .$
+
+             Поступим примерно так же, как и с доказательством предыдущего пункта. Зададим форму объёма:
+             \[
+                 f(X) 
+                 =
+                 \det \left(\begin{array}{c|c}
                      X & B\\
                      \hline
                      0 & C
-             \end{array}\right) = det\left(\left(\begin{array}{c|c}
-                     E_n & B\\
-                     \hline
-                     0 & C
-             \end{array}\right)\right)detX$.
-             Очевидно что $det\left(\left(\begin{array}{c|c}
-                     E_n & B\\
-                     \hline
-                     0 & C
-             \end{array}\right)\right)$ полилинейное по строчкам.
-             Поэтому $det\left(\left(\begin{array}{c|c}
-                     E_n & B\\
-                     \hline
-                     0 & C
-             \end{array}\right)\right) = det C \cdot det\left(
-                 \left(\begin{array}{c|c}
+                 \end{array}\right)
+             .\]
+             Проверим, что $f$~--- форма объёма. Очевидна полилинейность,
+             так как добавление нулей к векторам в $K^n$ ни на что не влияет.
+             Кососимметричность так же получается за бесплатно, так как если в 
+             $X$ есть два одинаковых столбца, то и в $f(X)$ они же и будут одинаковыми.
+
+             Поэтому верно равенство: $f(X) = \lambda \det X$. Найдём $\lambda$, подставив
+             $X = E_n$.
+             \begin{equation}
+                 \label{eq:8:1}
+                 f(E_n) = \lambda \underbrace{\det E_n}_{=1} \Rightarrow \lambda =
+                 \det \left(\begin{array}{c|c}
                          E_n & B\\
+                         \hline
+                         0 & C
+                 \end{array}\right)
+                 \Rightarrow
+                 f(X) = 
+                 \det \left(\begin{array}{c|c}
+                         E_n & B\\
+                         \hline
+                         0 & C
+                 \end{array}\right)
+                 \det X
+             .\end{equation}
+             Посмотрим как это выражение зависит от $C$. 
+             Для этого зададим новое отображение $g$ и зададим его следующим образом:
+             \[
+                 g(C) = 
+                 \det \left(\begin{array}{c|c}
+                         E_n & B \\
+                         \hline
+                         0 & C
+                 \end{array}\right)
+             \] 
+             (доказывается аналогично док-ву для $X$). 
+             Тогда $g(C) = \gamma \det C^T = \gamma \det C$. Как всегда, чтобы найти
+             эту константу, подставим $C = E$, тогда получим:
+             \[
+                 g(E_m) = 
+                 \det \left(\begin{array}{c|c}
+                         E_n & B \\
                          \hline
                          0 & E_m
                  \end{array}\right)
-             \right)$. Можно заметить, что определитель этой матрицы равен одному,
-            это легко понять, если поприменять элементарные преобразования.
-            Значит исходная формула имеет вид:
-             $f(X) = det C det X$. Что и требовалось доказать.
+                 = \gamma \underbrace{\det E_m}_{=1} 
+                 \Rightarrow \gamma = 
+                 \det \left(\begin{array}{c|c}
+                         E_n & B \\
+                         \hline
+                         0 & E_m
+                 \end{array}\right) = 1
+                 \Rightarrow g(C) = \det C
+             \]
+
+             Подставив это в формулу \ref{eq:8:1}, получим, что
+             $f(X) = \det C \det X$. Что и требовалось доказать.
          \item
-             $det A^{-1} = (det A)^{-1}$. $detA\cdot det A^{-1} = det(A\cdot A^{-1}) = det E_n = 1$
+             $\det A^{-1} = (\det A)^{-1}$.
+
+             \[
+             \begin{gathered}
+                 \det A\cdot \det A^{-1} = \det(A\cdot A^{-1}) = \det E_n = 1
+                 \\\Downarrow\\
+                 \det A^{-1} = (\det A)^{-1}.
+             \end{gathered}
+             \]
     \end{enumerate}
 \end{proof}
 \subsection{Связь определителя с объёмом}
@@ -110,18 +275,18 @@
     Вернёмся к тому, зачем мы вообще ввели определитель.
 \end{motivation}
 \begin{statement}
-    $\abs{det A} = Vol(\text{параллелепипед натянутый на столбцы $A$})$.
+    $\abs{\det A} = \vol(\text{параллелепипед натянутый на столбцы $A$})$.
 \end{statement}
 \begin{proof}
     Потребуются свойства элементарных преобразований: 
     \begin{enumerate}
-        \item $Vol(\dots, u, \dots, v+\lambda u,\dots) = Vol(\dots, u, \dots, v,\dots)$. (как следствие принципа Кавальери)
-        \item $Vol(\dots, \lambda u,\dots) = \abs{\lambda} Vol(\dots,u,\dots)$.
-        \item  $Vol(E_n) = 1$
+        \item $\vol(\dots, u, \dots, v+\lambda u,\dots) = \vol(\dots, u, \dots, v,\dots)$. (как следствие принципа Кавальери)
+        \item $\vol(\dots, \lambda u,\dots) = \abs{\lambda} \vol(\dots,u,\dots)$.
+        \item  $\vol(E_n) = 1$
     \end{enumerate}
     В совокупности эти 3 свойства позволяют нам вычислять объём параллелепипеда(todo).
     Они же позволяют вычислить модуль определителя. При этом надо заметить, что при
-    одинаковых преобразованиях $\abs{det A}$ и $Vol()$ меняются на одинаковую величину.
+    одинаковых преобразованиях $\abs{\det A}$ и $\vol()$ меняются на одинаковую величину.
 \end{proof}
 \subsection{Ориентация}
 \begin{motivation}
@@ -129,7 +294,7 @@
 \end{motivation}
 \begin{definition}
     $V$~--- векторное пространство над  $\R$. $e_1,\dots, e_n$, $f_1,\dots, f_n$~--- базисы,
-    тогда если $det[id]^f_e>0$ тогда базисы называются одинаково ориентированными.
+    тогда если $\det[id]^f_e>0$ тогда базисы называются одинаково ориентированными.
 \end{definition}
 \begin{remark}
     На самом деле определение ориентированности задаёт классы эквивалентности на множестве
@@ -146,19 +311,19 @@
 \end{remark}
 \begin{proof}
     $[L]^e_e = [id]^f_e [L]^f_f [id]^e_f$. $[id]^f_e = ([id]^e_f)^{-1}$, а значит 
-    $det [id]^f_e = (det [id]^e_f)^{-1}$. Значит $[L]^e_e = [L]^f_f$(что и требовалось доказать)
+    $\det [id]^f_e = (\det [id]^e_f)^{-1}$. Значит $[L]^e_e = [L]^f_f$(что и требовалось доказать)
 \end{proof}
 \begin{definition}
-    $det [L]^e_f = det L > 0$. Тогда говорят, что $L$~--- не меняет ориентацию.
+    $\det [L]^e_f = \det L > 0$. Тогда говорят, что $L$~--- не меняет ориентацию.
 \end{definition}
 \begin{remark}
     Упражнение: доказать, что $e_1,\dots, e_n$ и $Le_1,\dots, Le_n$ одинаково ориентированны.
 \end{remark}
 \begin{definition}
-    $SL_n(K) = \left\{A\in M_n(K)\mid det A = 1 \right\}$
+    $SL_n(K) = \left\{A\in M_n(K)\mid \det A = 1 \right\}$
 \end{definition}
 \begin{theorem}[Формула разложения по строке или по столбцу]
-    Будем говорить про столбцы, так как к строкам сводится в одно действие $det A = det A^T$.
+    Будем говорить про столбцы, так как к строкам сводится в одно действие $\det A = \det A^T$.
 \end{theorem}
 \begin{proof}
     $A = C_1a_{1,1} + \dots + C_na_{n,1}$
@@ -182,7 +347,7 @@
     J = \{1,\dots, n\}\setminus \{j\}$.
 \end{definition}
 \begin{statement}
-    $det A = \sum\limits_{i=1}^{n}{(-1)^{i+j}det(A_{\overline{i},\overline{j}})a_{i,j}}, \forall j$
+    $\det A = \sum\limits_{i=1}^{n}{(-1)^{i+j}\det(A_{\overline{i},\overline{j}})a_{i,j}}, \forall j$
     (TODO?)
 \end{statement}
 \begin{proof}
@@ -190,7 +355,7 @@
 \end{proof}
 \begin{follow}
     $Ax = b$, $A$~--- обратимая.
-    $x_i = \frac{\delta_i}{\delta}$, где $\delta = det A$, 
+    $x_i = \frac{\delta_i}{\delta}$, где $\delta = \det A$, 
     \[
     \delta_i = \left(\begin{array}{c|c|c}
              & & \\
@@ -200,12 +365,12 @@
     .\] 
 \end{follow}
 \begin{proof}
-    $\delta_i = det(\dots | \sum\limits_{}^{}{x_jv_j} | \dots)$ 
+    $\delta_i = \det(\dots | \sum\limits_{}^{}{x_jv_j} | \dots)$ 
     todo()
 \end{proof}
 \begin{definition}
     Давайте определим $M_{i,j}$(минор матрицы $A$), следующим образом:
-    $M_{i,j} = detA_{\overline{i}, \overline{j}}$, где $A_{\overline{i}, \overline{j}}$~--- матрица $A$, в которой 
+    $M_{i,j} = \det A_{\overline{i}, \overline{j}}$, где $A_{\overline{i}, \overline{j}}$~--- матрица $A$, в которой 
     отсутствует $i$ строка и $j$ столбец.
 \end{definition}
 \begin{definition}
@@ -216,7 +381,7 @@
     Присоединённой матрицей(обозн. $Adj A$) назовём следующую матрицу:\\ $(Adj A)_{i,j} = A^{j,i}$.
 \end{definition}
 \begin{statement}
-    $A^{-1} = \frac{AdjA}{det A}$
+    $A^{-1} = \frac{AdjA}{\det A}$
 \end{statement}
 \begin{proof}
     Упражнение.
