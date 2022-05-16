@@ -184,7 +184,7 @@ $\alpha$~--- алгебраическое $\Rightarrow f(\alpha)$~--- алгеб
     Определим векторное пространство над $\Q$, как $V = \langle1, \alpha, \alpha^2,\dots,\alpha^n,\dots\rangle = \langle1, \alpha, \alpha^2,\dots,\alpha^n\rangle \le \C$.
     Почему выполняется второе равенство?
     По алгебрaичности $\alpha$ $\exists p(\alpha) = b_0+b_1\alpha+\dots+b_n\alpha^n = 0, b_n\not=0$, тогда
-    $\alpha^n = -\frac{b_0}{b_n} - \frac{b_1\alpha}{b_n} + \dots + \frac{b_{n-1}\alpha^{n-1}}{b_n}$.
+    $\alpha^n = -\frac{b_0}{b_n} - \frac{b_1\alpha}{b_n} - \dots - \frac{b_{n-1}\alpha^{n-1}}{b_n}$.
     То есть все $\forall i \ge n, \alpha^i$ выражается через предыдущие, откуда следует, что $\dim V = n$.
 
     Обозначим $\beta = f(\alpha)$ и будем пытаться найти $q(\beta)=0$.
@@ -201,7 +201,7 @@ $\alpha$~--- алгебраическое $\Rightarrow f(\alpha)$~--- алгеб
     $U_1+U_2 = \{u_1+u_2\mid u_1\in U_1; u_2\in U_2\}$
 \end{definition}
 \begin{statement}
-    $U_1\cap U_2 \in V, U_1 + U_2 \in V$
+    $U_1\cap U_2 \subseteq V, U_1 + U_2 \subseteq V$
 \end{statement}
 \begin{proof}
     Упражнение.
