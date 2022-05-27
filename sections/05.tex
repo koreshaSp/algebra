@@ -376,25 +376,34 @@
     Теперь хотим двигаться в сторону преобразования второго и
     третьего типа.
 \end{motivation}
-Утверждается, что матрица 2 типа выглядит как:
-\[
-\begin{pmatrix}
-    1& & & & & & \\
-     &\ddots& & & &\text{\huge 0} &\\
-     & &0& &1& & \\
-     & & &\ddots& & &\\
-     & &1& &0& & \\
-     & \text{\huge 0}& & & &\ddots& \\
-    & & & & & &1\\
-\end{pmatrix}
-\]
+Утверждается, что матрица 2 типа для перестановки $i, j$ выглядит как:
+\NiceMatrixOptions{code-for-first-row = \scriptstyle,code-for-first-col = \scriptstyle }
+\setcounter{MaxMatrixCols}{12}
+\setlength{\extrarowheight}{-3mm}
+\newcommand{\blue}{\color{blue}}
+\[\begin{pNiceMatrix}[last-row,first-col,nullify-dots,xdots/line-style={dashed,blue}]
+& 1& & & \Vdots & & & & \Vdots \\
+& & \Ddots[line-style=standard] \\
+& & & 1 \\
+\blue i \rightarrow & \Cdots[color=blue,line-style=dashed]& & & \blue 0 &
+\Cdots & & & \blue 1 & & & \Cdots \\
+& & & & & 1 \\
+& & & &\Vdots & & \Ddots[line-style=standard] & & \Vdots \\
+& & & & & & & 1 \\
+\blue j \rightarrow & \Cdots & & & \blue 1 & \Cdots & & \Cdots & \blue 0 & & & \Cdots \\
+& & & & & & & & & 1 \\
+& & & & & & & & & & \Ddots[line-style=standard] \\
+& & & & \Vdots & & & & \Vdots & & & 1 \\
+& & & & \blue \overset{\uparrow}{i} & & & & \blue \overset{\uparrow}{j} \\
+\end{pNiceMatrix}\]
+
 А матрица 3 типа выглядит так:
 \[
 \begin{pmatrix}
     1 & & & &\\
-      &\ddots& &\text{\huge 0} & \\
+      &\ddots& & & \\
       & &\lambda& & \\
-      & \text{\huge 0} & &\ddots& \\
+      & & &\ddots& \\
       & & & &1\\
 \end{pmatrix}
 \]
