@@ -31,7 +31,7 @@
                 \item Проверим области определения и значений: $\det\colon M_n(K)\mapsto K \simeq (K^n)^n \mapsto K$.
                 \item Полилинейнойсть:
                     Вспомним определение: 
-                    $\det A = \sum\limits_{\sigma\in S_n} {sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}$. 
+                    $\det A = \sum\limits_{\sigma\in S_n} {\sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}$. 
                     \begin{itemize}
                         \item 
                             Легко видеть, что в произведении элемент каждого столбца встречается ровно один раз.
@@ -43,9 +43,9 @@
                             \[
                             \begin{gathered}
                                 \det (v_1,\dots, v_k + u, \dots, v_n) = 
-                                \sum\limits_{\sigma\in S_n} {sgn\sigma[v_k + u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
-                                \sum\limits_{\sigma\in S_n} {sgn\sigma[v_k]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}+
-                                \sum\limits_{\sigma\in S_n} {sgn\sigma[u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
+                                \sum\limits_{\sigma\in S_n} {\sgn\sigma[v_k + u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
+                                \sum\limits_{\sigma\in S_n} {\sgn\sigma[v_k]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}+
+                                \sum\limits_{\sigma\in S_n} {\sgn\sigma[u]_{\sigma(k)} \prod\limits_{\substack{i = 1\\i\not=k}}^{n}{[v_i]_{\sigma(i)}}}=\\=
                                 \det (v_1,\dots, v_k, \dots, v_n) + 
                                 \det (v_1,\dots, u, \dots, v_n) 
                             \end{gathered}
@@ -57,28 +57,28 @@
                     \]
                     Тогда можно расписать по определению:
                     \[
-                        \det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}}
+                        \det A = \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}}
                     \]
                     Заметим, что для получения группы всех нечетных перестановок из группы всех 
                     чётных можно воспользоваться следующей перестановкой: $\tau=(kl)$(на самом
-                    деле тут могла быть любая перестановка $\gamma\colon sgn(\gamma) = -1$)
+                    деле тут могла быть любая перестановка $\gamma\colon \sgn(\gamma) = -1$)
 
                     Тогда, если вернуться к нашей формуле то её можно переписать так:
                     \[
                     \begin{gathered}
                         \det A = 
-                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}\right)
                             - 
-                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left(\prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
                         \\
                         \det A = 
-                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}- \prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
                         \\
                         \det A = 
-                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\sigma(i)}-
                         [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)} \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\tau\sigma(i)}\right)
                     \end{gathered}
@@ -88,7 +88,7 @@
                     \[
                     \begin{gathered}
                         \det A = 
-                        \sum\limits_{\substack{\sigma\in S_n\\sgn(\sigma)=1}}
+                        \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left(\underbrace{\left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l -
                             [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)}\right)}_{=0}
                         \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\sigma(i)}\right) = 0
@@ -108,19 +108,19 @@
             что у любой перестановки есть обратная:
             \[
             \begin{gathered}
-                \det A = \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}
+                \det A = \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}
                 =
-                \sum\limits_{\sigma\in S_n}^{}{sgn\sigma\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
                 =\\=
                 [\text{так как \hyperref[stm:Основные свойства перестановки]{знак обратной перестановки равен исходному}}]
                 =\\=
-                \sum\limits_{\sigma\in S_n}^{}{sgn\sigma^{-1}\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma^{-1}\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
                 =
                 [\text{замена } \tau = \sigma^{-1}]
                 =
-                \sum\limits_{\tau\in S_n}^{}{sgn\tau \prod\limits_{i=1}^{n}a_{\tau(i), i}}
+                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a_{\tau(i), i}}
                 =\\=
-                \sum\limits_{\tau\in S_n}^{}{sgn\tau \prod\limits_{i=1}^{n}a^T_{i,\tau(i)}}
+                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a^T_{i,\tau(i)}}
                 =
                 \det A^T
             \end{gathered}
