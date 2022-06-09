@@ -46,11 +46,12 @@ $N^m = 0$(\hyperref[fix:nilpotent]{уже доказывали}). Нетрудн
 (см картинку).
 
 \[
+    \setlength{\extrarowheight}{-4mm}
     N = \begin{pNiceMatrix}[nullify-dots]
          0 & 1 & & & & \Block{2-1}<\LARGE>{0}\\
          & \Ddots & \Ddots\\
          \\\\
-         \Block{1-2}<\LARGE>{0} & & & & & 1\\
+         \Block{2-2}<\LARGE>{0} & & & & & 1\\
                                 & & & & & 0\\
      \end{pNiceMatrix}
      \quad
@@ -59,30 +60,34 @@ $N^m = 0$(\hyperref[fix:nilpotent]{уже доказывали}). Нетрудн
          & \Ddots & \Ddots & \Ddots \\
          \\
          & & & & & 1\\
-         \Block{1-2}<\LARGE>{0} & & & & & 0\\
+         \Block{2-2}<\LARGE>{0} & & & & & 0\\
                                 & & & & & 0\\
      \end{pNiceMatrix}
      \quad
      N^3 = \begin{pNiceMatrix}[nullify-dots]
-         0 & 0 & 0 & 1 & & \Block{1-1}<\LARGE>{0}\\
+         0 & 0 & 0 & 1 & & \Block{2-1}<\LARGE>{0}\\
          & \Ddots & \Ddots & \Ddots & \Ddots \\
          & & & & & 1\\
          & & & & & 0\\
-         \Block{1-2}<\LARGE>{0} & & & & & 0\\
+         \Block{2-2}<\LARGE>{0} & & & & & 0\\
                                 & & & & & 0\\
      \end{pNiceMatrix} \quad N^4 = \dots
 \] 
 Тогда уже можно увидеть чему равна написанная ранее сумма:
+    \NiceMatrixOptions{cell-space-limits = 5pt}
 \[
     J_m(\lambda)^k = (\lambda E + N)^k =
-    \begin{pNiceMatrix}[nullify-dots]
-        \lambda^k & \binom{k}{1}\lambda^{k-1} & \binom{k}{2}\lambda^{k-2} & & & \binom{k}{m-1}\lambda^{k-m-1}\\
-         & \Ddots & \Ddots & \Ddots \\
-         \\
-         & & & & & \binom{k}{2}\lambda^{k-2}\\
-        \Block{1-2}<\LARGE>{0} & & & & & \binom{k}{1}\lambda^{k-1}\\
-                               & & & & & \lambda^k\\
-     \end{pNiceMatrix}
+    \begin{pNiceMatrix}[nullify-dots, parallelize-diags=false]
+        \lambda^k & \binom{k}{1}\lambda^{k-1} & \binom{k}{2}\lambda^{k-2} & \Cdots & \binom{k}{m-1}\lambda^{k-m-1}\\
+            & & & & \Vdots \\
+            & & & & \binom{k}{2}\lambda^{k-2}\\
+            & & & & \binom{k}{1}\lambda^{k-1}\\
+            & & & & \lambda^k\\
+    \CodeAfter 
+        \line{1-1}{5-5}
+        \line{1-2}{4-5}
+        \line{1-3}{3-5}
+    \end{pNiceMatrix}
 \]
 Откуда видно, что все коэффициенты этой клетки это $\mathcal{O}(k^{m-1} \lambda^k)$, 
 при условии если оценить $\binom{k}{m - 1} = \mathcal{O}(k^{m-1})$. 
