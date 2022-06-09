@@ -58,6 +58,8 @@
     \put(0.52753417,0.46319739){\color[rgb]{0,0,0.00392157}\transparent{0.99893498}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$y$\end{tabular}}}}%
     \put(0.79765803,0.37986406){\color[rgb]{0,0,0.00392157}\transparent{0.99893498}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$l_0$\end{tabular}}}}%
     \put(0.38099136,0.46319739){\color[rgb]{0,0,0.00392157}\transparent{0.99893498}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$l_1$\end{tabular}}}}%
+    \put(0.17550251,0.43411611){\color[rgb]{0,0,0.00392157}\transparent{0.99893498}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$l_2$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{12.1.pdf}}%
+    \put(0.61957474,0.4442379){\color[rgb]{0,0,0.00392157}\transparent{0.99893498}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}$l_3$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
