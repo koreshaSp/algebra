@@ -92,15 +92,16 @@
     $\lambda$~--- собственное число оператора $L \Leftrightarrow \det(L - \lambda E) = 0$
 \end{statement}
 \begin{proof}
-    $\exists v\not= 0\colon Lv = \lambda v$, что эквивалентно $\exists v\not=0\colon (L - \lambda E)v = 0$, это значит, что $v \in \ker L$, то есть $\dim \ker L \neq 0$, а это то же самое, что $\det(L - \lambda E) = 0$
+    $\exists v\not= 0\colon Lv = \lambda v$, что эквивалентно $\exists v\not=0\colon (L - \lambda E)v = 0$,
+    это значит, что $v \in \ker (L \lambda E)$, то есть $\dim \ker (L - \lambda E) \neq 0$, а это то же самое, что $\det(L - \lambda E) = 0$
 \end{proof}
 \subsection{Характеристический многочлен и след матрицы}
 \begin{definition}
     $L\colon V\rightarrow V$. Тогда характеристическим многочленом
-    оператора $L$ называется следующая матрица:
+    оператора $L$ называется следующее число:
     \[
         \chi_L(t) = \det(L - tE) = 
-        \begin{pmatrix}
+        \det \begin{pmatrix}
             a_{1,1}-t&a_{1,2}&\dots&a_{1,n}\\
             a_{2,1} & \ddots & \ddots& \vdots\\
             \vdots & \ddots & \ddots& a_{n-1,n}\\
