@@ -175,14 +175,6 @@
   \end{enumerate}
 }
 
-\newenvironment{namedlemma}[1]
-{
-\quad    
-\begin{mdframed}[linewidth=0.6pt]
-    \textbf{Лемма \textnormal{(#1):}}
-}
-{\end{mdframed}}
-
 \newenvironment{lemma}{
 \quad
 \begin{mdframed}[linewidth=0.6pt]
@@ -217,56 +209,6 @@
 \definecolor{darkgreen}{rgb}{0.0, 0.2, 0.13}
 %\definecolor{oldmauve}{rgb}{0.4, 0.19, 0.28}
 % Configurando layout para mostrar codigos Java
-\usepackage{listings}
-
-\newcommand{\estiloJava}{
-\lstset{
-    language=Java,
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{jpurple}\bfseries,
-    stringstyle=\color{red},
-    commentstyle=\color{verde},
-    morecomment=[s][\color{blue}]{/**}{*/},
-    extendedchars=true,
-    showspaces=false,
-    showstringspaces=false,
-    numbers=left,
-    numberstyle=\tiny,
-    breaklines=true,
-    backgroundcolor=\color{cyan!10},
-    breakautoindent=true,
-    captionpos=b,
-    xleftmargin=0pt,
-    tabsize=2
-}}
-
-\newcommand{\estiloR}{
-  \lstset{ %
-    language=R,                     % the language of the code
-    basicstyle=\footnotesize,       % the size of the fonts that are used for the code
-    numbers=left,                   % where to put the line-numbers
-    numberstyle=\tiny\color{gray},  % the style that is used for the line-numbers
-    stepnumber=1,                   % the step between two line-numbers. If it's 1, each line
-                                    % will be numbered
-    numbersep=5pt,                  % how far the line-numbers are from the code
-    backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
-    showspaces=false,               % show spaces adding particular underscores
-    showstringspaces=false,         % underline spaces within strings
-    showtabs=false,                 % show tabs within strings adding particular underscores
-    frame=single,                   % adds a frame around the code
-    rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
-    tabsize=2,                      % sets default tabsize to 2 spaces
-    captionpos=b,                   % sets the caption-position to bottom
-    breaklines=true,                % sets automatic line breaking
-    breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
-    title=\lstname,                 % show the filename of files included with \lstinputlisting;
-                                    % also try caption instead of title
-    keywordstyle=\color{blue},      % keyword style
-    commentstyle=\color{darkgreen},   % comment style
-    stringstyle=\color{red},      % string literal style
-    escapeinside={\%*}{*)},         % if you want to add a comment within your code
-    morekeywords={*,...}          % if you want to add more keywords to the set
-}}
 
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
     \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
