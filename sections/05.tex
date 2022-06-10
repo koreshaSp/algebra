@@ -325,21 +325,25 @@
     $C,D$ принадлежат им, то система имеет единственное решение.
 \end{motivation}
 \begin{definition}
-    Вернетреугольной матрицей назовём матрицу вида:$$\begin{pmatrix}
-        * & * & \cdots & *\\
-        0 & * & \ddots & \vdots\\
-        \vdots & \ddots & \ddots & *\\
-        0 & \cdots& 0& *
-    \end{pmatrix}
-    $$
-    Нижнетреугольной назовём матрицу вида: $$\begin{pmatrix}
-        * & 0 & \cdots & 0\\
-        * & * & \ddots & \vdots\\
-        \vdots & \ddots & \ddots & 0\\
-        * & \cdots& *& *
-    \end{pmatrix}
-    $$
-
+    Вернетреугольной матрицей назовём матрицу вида:
+    \[
+        \begin{pNiceMatrix}
+            * & \Hdotsfor{2} & *\\
+            0 & \Ddots & & \Vdots\\
+            \Vdots & \Ddots & \Ddots & \Vdots\\
+            0 & \Cdots & 0 & *
+        \end{pNiceMatrix}
+    \] 
+    
+    Нижнетреугольной назовём матрицу вида: 
+\[
+        \begin{pNiceMatrix}
+            * & 0 & \Cdots & 0\\
+            \Vdots & \Ddots & \Ddots & \Vdots\\
+            \Vdots & & \Ddots & 0\\
+            * & \Cdots & \Cdots & *
+        \end{pNiceMatrix}
+    \]
     Обозначим эти классы как: $UT_n(K)$ и $LT_n(K)$ соответственно.
 \end{definition}
 \begin{remark}
@@ -352,17 +356,20 @@
     к строке $i$ строку $j$, умноженную на $\lambda$)в алгоритме
     Гаусса имеет вид: 
     \[
-        E_{i,j}(\lambda) = E +
-        \left(\begin{array}{cc|c|cccc}
-            \text{\huge 0}&&\text{\small j}&&&&\text{\huge 0}\\
-            &&&&&&\\
-            &&0&&&&\\
-            \hline
-            \dots&0&\lambda&0&\dots&&\text{\small i}\\
-            \hline
-            &&0&&&\\
-            \text{\huge 0}&&\vdots&&&&\text{\huge 0}\\
-        \end{array}\right) 
+        E_{i,j}(\lambda) = 
+        \setlength{\extrarowheight}{-3mm}
+        \newcommand{\blue}{\color{blue}}
+        \begin{pNiceMatrix}[last-row,first-col,nullify-dots,xdots/line-style={dashed,blue}]
+        &    1 & & \Vdots & & & \Block{2-2}<\LARGE>{0}\\
+        &     & \Ddots[line-style=standard] \\
+        & & & \blue 1    \\
+        & & & \Vdots & \Ddots[line-style=standard] \\
+\blue i \rightarrow & \Cdots & & \blue \lambda & \Cdots & \blue 1 & \Cdots\\
+        & \Block{2-2}<\LARGE>{0} & & \Vdots & & &\Ddots[line-style=standard]  \\
+        & & & \Vdots & & & & 1  \\
+        & & & \blue \overset{\uparrow}{j}
+        \end{pNiceMatrix}
+        \setlength{\extrarowheight}{0mm}
     .\] 
     Иначе говоря это единичная матрица, в $j, i$ ячейку 
     которой добавили $\lambda$.
