@@ -71,13 +71,13 @@
                         \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}\right)
                             - 
                         \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
-                        \left(\prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
+                        \left(\prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right) =
                         \\
-                        \det A = 
+                        = 
                         \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
-                        \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}- \prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right)
+                        \left(\prod\limits_{i=1}^{n}[v_i]_{\sigma(i)}- \prod\limits_{i=1}^{n}[v_i]_{\tau\sigma(i)}\right) =
                         \\
-                        \det A = 
+                        = 
                         \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\sigma(i)}-
                         [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)} \prod\limits_{\substack{i=1\\\sigma(i)\not=k,l}}^{n}[v_i]_{\tau\sigma(i)}\right)
@@ -87,7 +87,7 @@
                     Значит можно вынести произведение за скобки:
                     \[
                     \begin{gathered}
-                        \det A = 
+                        \Rightarrow \det A = 
                         \sum\limits_{\substack{\sigma\in S_n\\\sgn(\sigma)=1}}
                         \left(\underbrace{\left([v_{\sigma^{-1}(k)}]_k [v_{\sigma^{-1}(l)}]_l -
                             [v_{\sigma^{-1}(k)}]_{\tau(k)} [v_{\sigma^{-1}(l)}]_{\tau(l)}\right)}_{=0}
@@ -411,8 +411,9 @@ C_i = (-1)^i \det
     J = \{1,\dots, n\}\setminus \{j\}$.
 \end{definition}
 \begin{statement}[Формула разложения]
+		Для фиксированного $1 \leq j \leq n$, выполняется:
     \[
-        \det A = \sum\limits_{i=1}^{n}{(-1)^{i+j}\det\left(A_{\overline{i},\overline{j}}\right)a_{i,j}}, \forall j
+        \det A = \sum\limits_{i=1}^{n}{(-1)^{i+j}\det\left(A_{\overline{i},\overline{j}}\right)a_{i,j}}
     \]
 \end{statement}
 \begin{remark}
