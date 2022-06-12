@@ -59,7 +59,7 @@
     \end{array}\right)
     .\] 
     Получаем что, $c_1\dots c_k \cdot c_{k + 1} = d_{k + 1}\not=0$.
-	Видим, что $d_k = c_1 \dots c_k \Rightarrow c_{k+1} = \frac{d_{k+1}}{d_{k}}$
+    Видим, что $d_k = c_1 \dots c_k \Rightarrow c_{k+1} = \frac{d_{k+1}}{d_{k}}$
 \end{proof}
 \begin{remark}
     Заметим, что наше условие очень похоже на условие для $LU$ разложение в алгоритме Гаусса. На самом деле
@@ -91,10 +91,10 @@
     Сигнатура не зависит от способа приведения к каноническому виду (Способа диагонализации).
 \end{theorem}
 \begin{proof}
-	Покажем, что 
-	\[
-			k = \max_{U\le V, \ g|_U > 0} \dim U
-	\] Таким образом хотим показать, что $k = \dim U$ для какого-то  $U\le V$, причём $g|_U > 0$(положительно определена).
+    Покажем, что 
+    \[
+            k = \max_{U\le V, \ g|_U > 0} \dim U
+    \] Таким образом хотим показать, что $k = \dim U$ для какого-то  $U\le V$, причём $g|_U > 0$(положительно определена).
     Знаем, что есть следующее представление квадратичной формы в каком-то ортогональном базисе $e_1\dots e_n$ 
     соответствующей квадратичной форме $U$.
      \[
@@ -147,7 +147,8 @@
                     0 & & \sqrt{c_n}\\
                 \end{pmatrix}
             \]
-			Тогда $A = \left(\hat{C}^T\sqrt{D}^T\right)\left(\sqrt{D}\hat{C}\right)$, тогда $C=\left(\sqrt{D}\hat{C}\right)$ и она невырожденная - как произведение 
+            Тогда $A = \left(\hat{C}^T\sqrt{D}^T\right)\left(\sqrt{D}\hat{C}\right)$, тогда 
+            $C=\left(\sqrt{D}\hat{C}\right)$ и она невырожденная, как произведение 
             невырожденных.
         \item
             $2 \ora 3.$ Ослабление условия.
@@ -205,8 +206,9 @@
     \begin{itemize}
         \item 
     \[
-		x \rightarrow\frac{\norm{x} \cdot \langle x, v \rangle }{\norm{x}\norm{v}}\cdot\frac{v}{\norm{v}}=\frac{\langle x, v \rangle}{\norm{v}^2}\cdotv
- 	\]
+        x \rightarrow\frac{\norm{x} \cdot \langle x, v \rangle }{\norm{x}\norm{v}}\cdot\frac{v}{\norm{v}}=
+        \frac{ \langle x, v \rangle }{\norm{v}^2} \cdot v
+     \]
         \item 
     \[
          V \to \langle v^T \rangle   
@@ -221,7 +223,7 @@
 \end{example}
 \subsection{Ортогонализация Грама-Шмидта}
 Есть некоторый набор векторов $e_1,\dots, e_k$~--- линейно независимый в Евклидовом пространстве $V$.
-$f_1, \dots, f_k$~--- ? такой что: 
+$f_1, \dots, f_k$~--- набор векторов такой что: 
 \begin{enumerate}
     \item $f_i\perp f_j, i\not = j.$
     \item $\langle e_1,\dots, e_i \rangle = \langle f_1, \dots , f_i \rangle, \forall i$.
