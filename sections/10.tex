@@ -126,19 +126,19 @@
     $h(A)p(A) + g(A) q(A) = E$, где $E$ является тождественным оператором, и равенство
     стоит между двумя операторами.
     Тогда можно подействовать этими эквивалентными операторами на вектор $v$, получить
-    следующее равенство: $h(A)(p(A)v) + g(A)(q(A)v) = v$.
+    следующее равенство: $h(A)p(A)v + g(A)q(A)v = v$.
 
     Докажем, что $p(A)v\in \ker q(A)$ следует из $pq(A) = 0$.
     \[
-        p(A)v\in \ker q(A) \Leftrightarrow q(A)(p(A)v) = 0 \Leftrightarrow (pq)(A)v = 0 \Leftarrow pq(A)=0
+        p(A)v\in \ker q(A) \Leftrightarrow q(A)p(A)v = 0 \Leftrightarrow (pq)(A)v = 0 \Leftarrow pq(A)=0
     \] 
     
     Получили, что $p(A)v\in \ker q(A), q(A)v\in \ker p(A)$ так как $pq(A)=0$,
     тогда в равенстве выше вектор $v$ разложился на сумму векторов из $\ker q(A), \ker p(A)$:
     \[
         v = 
-        \overbrace{h(A)(\underbrace{p(A)v}_{\in \ker q(A)})}^{\in \ker q(A)} + 
-        \overbrace{g(A)(\underbrace{q(A)v}_{\in \ker p(A)})}^{\in \ker p(A)}
+        \overbrace{h(A)\underbrace{p(A)v}_{\in \ker q(A)}}^{\in \ker q(A)} + 
+        \overbrace{g(A)\underbrace{q(A)v}_{\in \ker p(A)}}^{\in \ker p(A)}
     .\]
     Тут мы неявно
     воспользовались тем, что ядро многочлена оператора инвариантно оператору, а
