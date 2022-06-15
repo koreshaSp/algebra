@@ -1,9 +1,9 @@
 \section{Лекция 04.04}
 \begin{theorem}[Свойства определителя]\leavevmode
     \begin{enumerate}
+        \item $\det A = \det A^T$.
         \item $\det A$~--- форма объёма на $K^n$.
         \item Все формы объёма на $K^n$ пропорциональны $\det$.
-        \item $\det A = \det A^T$.
         \item Элементарные преобразования строк и столбцов просто меняют определитель:
             \begin{enumerate}
                 \item Элементарное преобразование первого типа не меняет определитель.
@@ -23,14 +23,39 @@
 \end{theorem}
 \begin{proof}\leavevmode
     \begin{enumerate}
+        \item $\det A = \det A^{T}$.
+
+            Распишем по определению, после чего воспользуемся тем,
+            что у любой перестановки есть обратная:
+            \[
+            \begin{gathered}
+                \det A = \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}
+                =
+                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                =\\=
+                [\text{так как \hyperref[stm:Основные свойства перестановки]{знак обратной перестановки равен исходному}}]
+                =\\=
+                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma^{-1}\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
+                =
+                [\text{замена } \tau = \sigma^{-1}]
+                =
+                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a_{\tau(i), i}}
+                =\\=
+                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a^T_{i,\tau(i)}}
+                =
+                \det A^T
+            \end{gathered}
+            \]
         \item 
             Докажем то, что $\det A$~--- форма объёма по определению.
 
             \begin{itemize}
                 \item Проверим области определения и значений: $\det\colon M_n(K)\mapsto K \simeq (K^n)^n \mapsto K$.
-                \item Полилинейнойсть:
+                \item Полилинейность:
                     Вспомним определение: 
-                    $\det A = \sum\limits_{\sigma\in S_n} {\sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}$. 
+                    $\det A = \sum\limits_{\sigma\in S_n} {\sgn\sigma \prod\limits_{i = 1}^{n}{a_{i, \sigma(i)}}}
+                    = \sum\limits_{\sigma\in S_n} {\sgn\sigma \prod\limits_{i = 1}^{n}{a_{\sigma(i), i}}}$. 
+                    Последнее равенство верно по первому свойству.
                     \begin{itemize}
                         \item 
                             Легко видеть, что в произведении элемент каждого столбца встречается ровно один раз.
@@ -101,29 +126,6 @@
             \hyperref[stm:О пространстве форм объёма]{Доказано} в прошлый раз,
             так как все формы объёма определяются через определитель, умноженный
             на некоторую константу.
-        \item $\det A = \det A^{T}$.
-
-            Распишем по определению, после чего воспользуемся тем,
-            что у любой перестановки есть обратная:
-            \[
-            \begin{gathered}
-                \det A = \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{i,\sigma(i)}}
-                =
-                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
-                =\\=
-                [\text{так как \hyperref[stm:Основные свойства перестановки]{знак обратной перестановки равен исходному}}]
-                =\\=
-                \sum\limits_{\sigma\in S_n}^{}{\sgn\sigma^{-1}\prod\limits_{i=1}^{n}a_{\sigma^{-1}(i), i}}
-                =
-                [\text{замена } \tau = \sigma^{-1}]
-                =
-                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a_{\tau(i), i}}
-                =\\=
-                \sum\limits_{\tau\in S_n}^{}{\sgn\tau \prod\limits_{i=1}^{n}a^T_{i,\tau(i)}}
-                =
-                \det A^T
-            \end{gathered}
-            \]
         \item 
             \begin{enumerate}
                 \item $\det A$ не меняется при первом элементарном преобразовании для матрицы $A$.
