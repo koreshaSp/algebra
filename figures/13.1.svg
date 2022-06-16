@@ -56,6 +56,18 @@
        width="120.04035"
        height="42.695348"
        id="rect11956-3" />
+    <rect
+       x="262.42896"
+       y="382.33722"
+       width="182.54331"
+       height="29.577601"
+       id="rect11956-7" />
+    <rect
+       x="262.42896"
+       y="382.33722"
+       width="253.51456"
+       height="43.217219"
+       id="rect11956-3-3" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -64,9 +76,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.99437388"
-     inkscape:cx="430.92443"
-     inkscape:cy="222.75324"
+     inkscape:zoom="1.9887478"
+     inkscape:cx="309.99406"
+     inkscape:cy="204.90281"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -119,35 +131,66 @@
        id="path1354" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,0,177)"
+       transform="matrix(0.26458333,0,0,0.26458333,-2.3253284,174.6295)"
        id="text3522"
        style="font-size:22.6772px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect3524);fill:none;fill-opacity:0.999112;fill-rule:evenodd;stroke:#000001;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.77953, 3.77953;stroke-dashoffset:3.02362;stop-color:#000000"><tspan
          x="452.98462"
          y="65.264281"
-         id="tspan24850"><tspan
+         id="tspan35705"><tspan
            style="fill:#000000;fill-opacity:1;stroke:none"
-           id="tspan24848">$x$</tspan></tspan></text>
+           id="tspan35703">$x$</tspan></tspan></text>
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,0,177)"
+       transform="matrix(0.26458333,0,0,0.26458333,-2.8615329,175.90615)"
        id="text11954"
        style="font-size:22.6772px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11956);fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.77953, 3.77953;stroke-dashoffset:3.02362;stop-color:#000000"><tspan
          x="267.09578"
          y="402.97131"
-         id="tspan24852">$v$</tspan></text>
+         id="tspan35707">$v$</tspan></text>
     <path
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000001;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:1, 6;stroke-dashoffset:0.9;stroke-opacity:1;stop-color:#000000"
        d="m 116.18119,190.23392 v 85.62573"
        id="path14059" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,45.204803,175.60501)"
+       transform="matrix(0.26458333,0,0,0.26458333,31.629233,178.89509)"
        id="text11954-6"
        style="font-size:22.6772px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11956-3);fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.77953, 3.77953;stroke-dashoffset:3.02362;stop-color:#000000"
        inkscape:transform-center-x="18.174591"
        inkscape:transform-center-y="0.31493914"><tspan
-         x="269.3619"
+         x="270.00821"
          y="402.97131"
-         id="tspan24854">$\pr_v(X)$</tspan></text>
+         id="tspan35709">$\pr_v(x)$</tspan></text>
+    <path
+       style="fill:none;fill-opacity:0.999112;fill-rule:evenodd;stroke:#000001;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#Arrow1Mend);stop-color:#000000"
+       d="M 30.995921,275.41919 V 235.78371"
+       id="path26997" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-58.25892,139.84305)"
+       id="text11954-5"
+       style="font-size:22.6772px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11956-7);fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.77953, 3.77953;stroke-dashoffset:3.02362;stop-color:#000000"><tspan
+         x="290.62456"
+         y="402.97131"
+         id="tspan35711">$v^{\perp}$</tspan></text>
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000001;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:1, 1;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+       d="M 30.995921,275.41919 V 181.58746"
+       id="path30461"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000001;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:1, 6;stroke-dashoffset:4.9;stroke-opacity:1;stop-color:#000000"
+       d="M 30.555467,190.23392 H 116.18119"
+       id="path30741" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.26458333,0,0,0.26458333,-68.081199,92.410728)"
+       id="text11954-6-5"
+       style="font-size:22.6772px;font-family:sans-serif;-inkscape-font-specification:sans-serif;text-align:center;white-space:pre;shape-inside:url(#rect11956-3-3);fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:3.77953;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:3.77953, 3.77953;stroke-dashoffset:3.02362;stop-color:#000000"
+       inkscape:transform-center-x="18.174591"
+       inkscape:transform-center-y="0.31493914"><tspan
+         x="292.40028"
+         y="402.97131"
+         id="tspan35713">$\pr_{v^\perp}(x)$</tspan></text>
   </g>
 </svg>
